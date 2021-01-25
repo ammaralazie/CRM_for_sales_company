@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datil of Order</title>
+</head>
+<body>
+    {% if request.user.is_authenticated and request.user.username == 'Social' %}
+    <div class="alldetail">
+        <div class="cover">
+        <div class="name_user"><label for="">Namee :</label><div>
+            {% if obj.customer.firs_name and obj.customer.last_name %}
+            {{obj.customer.firs_name}} &ThinSpace;{{obj.customer.last_name}}
+            {% else %}
+        {{obj.customer}}
+        {% endif %}
+        </div>
+           
+
+        </div>
+          <div class="name_product"><label for="">the Product :</label><div>{{obj.product}}</div></div>
+            <div class="name_address">
+                <label for=""> the Address :</label> <div>{{obj.address.covernorate}}</div>
+                 <div>{{obj.address.state}}</div>
+            </div>
+            <div class="phone_number">
+                <label for="">Phone Number :</label>
+                <div>{{obj.address.phone_number1}}</div>
+                <div>{{obj.address.phone_number2}}</div>
+            </div>
+            <div class="qunatity_detail">
+                <label for="">Email</label>
+                <div>{{obj.address.email}}</div>
+            </div>
+            <div class="qunatity_detail">
+                <label for="">Quantity</label>
+                <div>{{obj.quantity}}</div>
+            </div>
+            <div class="total_price">
+                <label for="">Totle Price :</label>
+                <div>${{obj.totleprice}}</div>
+            </div>
+
+        <div class="state_product">
+            <label for="">Date :</label>
+            <div>{{obj.date_add|date:'Y / m / d'}}</div>
+        </div>
+        <div class="state_product">
+            <label for="">State of Product :</label>
+            <div>
+                {% if obj.complate == True %}
+                complated
+                {% else %}
+                waiting ..
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

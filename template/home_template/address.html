@@ -1,0 +1,35 @@
+{% load static widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'css/srtyleaddress.css' %}">
+
+    <title>The Orders</title>
+    <link rel="shortcut icon" href="log.ico" type = "image/x-icon">
+</head>
+<body>
+<div class="backgound_address">
+    <img src="{% static 'img/r.jpeg' %}" alt="">
+</div>
+
+<div class="address">
+    <div class="title_address">
+        Requset Information
+    </div>
+    <div class="info_address">
+        <form action="{% url 'product:addaddress' %}" method="POST" >
+            {% csrf_token %}
+            <input  placeholder="first phone number" name="n1" type="number">
+            <input  placeholder="seconde phone number" name="n2" type="number">
+            <input type="email" name="email" placeholder="your email">
+            <input  placeholder="your covernorate" name="covernorate" type="text">
+            <input  placeholder="your city" name="state" type="text">
+            <button type="submit" >Submit your Requset</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

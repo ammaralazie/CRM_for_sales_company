@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+{% load static widget_tweaks %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/styleorder.css' %}">
+{% endblock head %}
+
+{% block title %}
+Your orders
+{% endblock title %}
+
+{% block body %}
+<div class="background_order">
+
+</div>
+<div class="items">
+    <a href="{% url 'product:addaddress' %}" class="order_rservation">Order reservation</a> 
+       <div class="table">
+           <table>
+               <tr>
+                    <td>Image of Products</td>
+                       <td>Name of products</td>
+                       <td>Quantity</td>
+                       <td>Total price</td>
+               </tr>
+               {% for obj in obj %}
+               <tr>
+                <td><img src={{obj.product.PRDIamge.url}} alt=""></td>
+                   <td>{{obj.product.PRDName}}</td>
+                   <td>{{obj.quantity}}
+                    <div class="image_order">
+                        <button class="top_quantity" data-action="add" data-orid="{{obj.pk}}"><i class="fas fa-arrow-alt-up"></i></button>
+                        <button class="down_quantity" data-action="remove" data-orid="{{obj.pk}}"><i class="fas fa-arrow-alt-down"></i></button>
+                    </div>
+                   </td>
+                   <td>${{obj.totleprice}}</td>
+                </tr>
+                {% endfor %}
+           </table>
+       </div>
+   </div>
+
+{% endblock body %}
+
+
+{% block script %}
+<script src="{% static 'js/qunatity.js' %}" ></script>
+{% endblock script %}

@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+    {% block head %}
+    {% endblock head %}
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <link rel="shortcut icon" href="{% static 'img/log.ico' %}" type = "image/x-icon">
+</head>
+<body>
+
+    <!--login section-->
+    <!--blur-->
+        <div class="container_login">
+            <div class="cover_login">   
+              
+            </div>
+        </div>
+        <!--end blur-->
+        <div class="login">
+            Plase &ThinSpace;<a href="{% url 'login' %}">Login</a>  
+        </div>
+        <div class="close_span">
+            <span></span>
+            <span></span>
+        </div>
+    
+    <!--end ligin section-->
+     <!--chat with admin-->
+     <div class="chat">
+        <a href="" class="chat_email">
+            <i class="fas fa-comment-alt"></i>
+        </a>
+    </div>
+    <!--end chat-->
+    <!-- navpar -->
+    <div class="navbar">
+        <div class="nav_container">
+            <div class="logo">
+                <h4><a href="{% url 'home' %}"><i class="fas fa-bags-shopping"></i>المجرة الحرة</a></h4>
+            </div>
+            <div class="nav_span">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav__options"> 
+               
+                
+                <ul class="nav_list">
+                    <li>
+                       <a href="{% url 'product:allorders' %}"> <div class="cart_nav">
+                        <p>{{all}}</p><i class="fas fa-shopping-cart"></i>
+                       </div></a>
+                    </li>
+                    <li>
+                        <div class="serch">
+                            search&ThickSpace;<i class="fas fa-sort-down"></i>
+
+                        </div>
+
+                        <div class="serch__nav s ">
+                            <form action="" method="post" class="form_nav" >
+                                <input type="search" name="search" placeholder="search on products">
+                                <buttont class="button_nav"><i class="fas fa-search"></i></buttont>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">fdjhgfj</a>
+                    </li>
+                    <li>
+                        <a href="">esghsdfgdfk</a>
+                    </li>
+                    <li>
+                        <a href="">sakfsdafg</a>
+                    </li>
+                    <li>
+                        {% if not request.user.is_authenticated  %}
+                        <div class="user"><a href="{% url 'login' %}">Login</a></div>
+                        {% else %}
+                        <div class="user">{{request.user}}&ThickSpace;<i class="fas fa-sort-down"></i></div>
+                        <div class="list_user">
+                            <ul class="ul_user">
+                                {% if request.user.username == "Social" %}
+                                <li><a href="{% url 'management' %}">Management</a></li>
+                                {% endif %}
+                                <li>your orders</li>
+                                <li>your languange</li>
+                                <li><a href="{% url 'logout' %}">logout</a> </li>
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end navbar -->
+    {% block body %}
+    {% endblock body %}
+    <script src="{% static 'js/homejs.js' %}" ></script>
+    <script src="{% static 'js/mobile.js' %}" ></script>
+   <script>
+       user="{{user}}"
+function getToken(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+//انضيف هذا المتغير الى ملف الجافا سكربت حتى نححق مطالب سي اس ا اس ار اف تكوين
+const csrftoken = getToken('csrftoken');
+</script>  
+{% block script %}
+{% endblock script %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'home/baselogin.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/stylesignup.css' %}">
+<link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+{% endblock head %}
+{% block title %}
+signup
+{% endblock title %}
+
+{% block body %}
+<h1 style="color: #fff;margin: 20px;">Create Account</h1>
+<form action=""  method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    {% if field.name == 'username' %}
+    {% render_field form.username|add_class:'username'|attr:'placeholder:Username' %}
+    {% endif %}
+    {% if field.name == 'first_name' %}
+    {% render_field form.first_name|add_class:'username'|attr:'placeholder:First Name' %}
+    {% endif %}
+    {% if field.name == 'last_name' %}
+    {% render_field form.last_name|add_class:'username'|attr:'placeholder:Last Name' %}
+    {% endif %}
+    {% if field.name == 'email' %}
+    {% render_field form.email|add_class:'username'|attr:'placeholder:Enter your email' %}
+    {% endif %}
+    {% if field.name == 'password1' %}
+    {% render_field form.password1|add_class:'username'|attr:'placeholder:Password' %}
+    {% render_field field.help_text%}
+    {% endif %}
+    {% if field.name == 'password2' %}
+    {% render_field form.password2|add_class:'username'|attr:'placeholder:Password confirmation' %}
+    {% endif %}
+  {% endfor %}
+  <button type="submit" >Signup</button>
+  {% for error in field.errors %}
+  <p style="color: rgb(196, 209, 19)">{{ error }}</p>
+{% endfor %}
+</form>
+{% endblock body %}

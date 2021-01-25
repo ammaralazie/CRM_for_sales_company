@@ -1,0 +1,45 @@
+
+{% extends 'home/baselogin.html' %}
+{% load static widget_tweaks%}
+{% load socialaccount %}
+{% providers_media_js %}
+
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+{% endblock head %}
+        {% block title %}
+        freezone / login
+        {% endblock title %}
+        {% block body %}
+        
+          <div class="form_login">
+              <div class="otherlogin">
+                  <div class="facebook">
+                      <a href="{% url 'social:begin' 'facebook' %}">login with facebook&ThickSpace;<i class="fab fa-facebook-f"></i></a>
+                  </div>
+                  <div class="google">
+                      <a href="{% provider_login_url 'google' %}">login with google&ThickSpace; <i class="fab fa-google"></i></a>
+                  </div>
+              </div>
+              <form action="" method="post">
+                  {% csrf_token %}
+                  {% render_field form.username|attr:"placeholder:username" %}
+                  {% render_field form.password|attr:"placeholder:password" %}
+                  
+                  <button type="submit" >Login</button>
+                  <i class="fas fa-eye"></i>
+              </form>
+             
+              <p class="froget_password">
+                 <a href="{% url 'reset_password' %}"> forget password ?</a>
+              </p>
+              <p class="signup">
+                 <a href="{% url 'signup' %}">if you do not have account plase signup</a> 
+              </p>
+          </div>
+          {% endblock body %}
+          {% block script %}
+          <script src="{% static 'js/mainlogin.js' %}" ></script>
+          {% endblock script %}

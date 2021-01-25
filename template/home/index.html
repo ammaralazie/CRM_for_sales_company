@@ -1,0 +1,72 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block head %}
+
+{% endblock head %}
+
+{% block title %}
+products
+{% endblock title %}
+{% block body %}
+    <!--super hero-->
+    <div class="section">
+        <div class="cover_section">
+            <div class="about_section">
+                <p>
+                    ONLY TEST PAGE
+                </p>
+            </div>
+            <div class="image_section">
+                <p><i class="fas fa-bags-shopping"></i></p>
+            </div>
+        </div>
+        
+    </div>
+    <!--end hero-->
+    <!--card-->
+    <div class="container_cord">
+        <div class="wepper">
+        {% for obj in obj %}
+            <div class="card">
+                <div class="image">
+                    <img src="{{obj.PRDIamge.url}}" alt="">
+                </div>
+                <div class="name">
+                    <a href="">{{obj.PRDName}}</a>
+                </div>
+                
+                <div class="discription">
+                    {{obj.PRDDiscription}}
+                </div>
+                <div class="price">
+                    <div class="discount">
+                        {% if obj.PRDDiscount %}
+                        <div class="removerprice">
+                            ${{obj.PRDPrice}}
+                        </div>
+                        ${{obj.PRDDiscount}}
+                        {% else %}
+                        ${{obj.PRDPrice}}
+                    </div>
+                    {% endif %}
+                    <div class="state">
+                        {% if obj.PRDSate == "new"%}
+                        <div class="new"><img src="{% static 'img/new.png' %}" alt=""></div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="add_card">
+                    <button class="add_button" data-slug="{{obj.PRDSlug}}" data-action="add">
+                    Add to Card
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>   <!--end card-->
+{% endblock body %}
+
+{% block script %}
+<script src={% static 'js/cardAdd.js' %}></script>
+{% endblock script %}

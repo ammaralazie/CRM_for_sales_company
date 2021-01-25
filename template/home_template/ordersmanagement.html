@@ -1,0 +1,66 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/managementorder.css' %}">
+{% endblock head %}
+{% block title %}
+Management Order
+{% endblock title %}
+
+
+{% block body %}
+{% if request.user.is_authenticated and request.user.username == 'Social' %}
+<div class="requsets">
+    <div class="wepper">
+        {% for obj in obj  %}
+        {% if obj.address %}
+        <div class="cover">
+            <a href="{% url 'detaill' obj.id %}">
+                <div class="card">
+                    <div class="image">
+                        <img src="{{obj.product.PRDIamge.url}}" alt="">
+                    </div>
+                    <div class="info_product">
+                        {% if obj.customer.first_name and obj.customer.last_name %}
+                        <h3>Name :{{obj.customer.first_name}}&ThinSpace;{{obj.customer.last_name}}</h3>
+                        {% else %}
+                        <h3>Username :{{obj.customer}}</h3>
+                        {% endif %}
+                        <h5>Product :{{ obj.product}}</h5>
+                        <p>Qunatity : {{obj.quantity}}</p>
+                        <p class="tp">Total price : ${{obj.totleprice}}</p>
+                        <p class="tp">Date : {{obj.date_add|date:'Y m d'}}</p>
+                    </div>
+                </div>
+            </a>
+        
+        <div class="complate">
+            <form action="" method="POST" >
+
+                <div class="div_uncomplate" data-ch={{obj.complate}} data-customer={{obj.customer}} data-product={{obj.product.PRDSlug}}>
+                    {% if obj.complate == True %}
+                    <input type="checkbox" checked="checked" >
+                    Complated
+                    {% else %}
+                    <input type="checkbox" >
+                    waiting ..
+                    {% endif %}
+                </div>
+
+            </form>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    
+    
+    </div>
+</div>
+{% endif %}
+{% endblock body %}
+
+
+{% block script %}
+<script src="{% static 'js/managementorder.js' %}" ></script>
+{% endblock script %}

@@ -1,0 +1,40 @@
+{% load static widget_tweaks%}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{% static 'css/stylelogin.css' %}">
+  
+  {% block head %}
+ 
+  {% endblock head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="{% static 'img/log.ico' %}" type = "image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+</head>
+<body>
+
+  <div class="backgroundvideo">
+
+  </div>
+  <div class="login">
+      <div class="cover_login larger morelarger">
+        {% block body %}
+        {% endblock body %}
+          
+      </div>
+  </div>
+  {% block script %}
+  {% endblock script %}
+
+</body>
+</html>
