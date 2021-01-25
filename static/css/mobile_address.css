@@ -38,7 +38,7 @@
 }/*end media 1024px */
 
 
-@media screen and (max-width:420px){
+@media screen and (max-width:480px){
 
     .info_address{
         top: 18%;
@@ -67,3 +67,26 @@
         font-size: 20px;
     }
 }/*end media 1024px */
+
+@media screen and (max-width:380px){
+    .info_address {
+        right: 6%;
+        width: 85%;
+    }    
+}/*end media 380px */
+
+
+@media screen and (max-width:340px){
+
+    .info_address {
+        right: 7%;
+        width: 88%;
+       
+    }  
+    .title_address{
+    left: 26px;
+    font-size: 28px;
+    top: 40px;
+    }
+
+}/*end 340px*/
