@@ -32,3 +32,9 @@
         font-size: 15px;
     }
 }/*end media 415*/
+
+@media screen and (max-width:320px){
+    .items .order_rservation{
+        font-size: 12px;
+    }
+}/* end media 320*/
