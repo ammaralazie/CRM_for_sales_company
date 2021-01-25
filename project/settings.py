@@ -25,7 +25,7 @@ SECRET_KEY = 'aqv(wx1q#w@=ylr4)(!evgp@27m$6=1t9i$%rea-#_bvd8^6s4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['morning-temple-58908.herokuapp.com','0.0.0.0']
+ALLOWED_HOSTS = ['morning-temple-58908.herokuapp.com','0.0.0.0','127.0.0.1','localhost:8000']
 
 
 # Application definition
