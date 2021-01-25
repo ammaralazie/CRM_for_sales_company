@@ -25,7 +25,7 @@ SECRET_KEY = 'aqv(wx1q#w@=ylr4)(!evgp@27m$6=1t9i$%rea-#_bvd8^6s4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://git.heroku.com','0.0.0.0']
 
 
 # Application definition
