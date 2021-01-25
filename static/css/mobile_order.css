@@ -1,0 +1,28 @@
+@media screen and (max-width:415px){
+    .table table{
+        width: 100%;
+    }
+    .items .order_rservation{
+        width: 35%;
+        height: 36px;
+        font-size: 15px;
+    }
+    .table table tr{
+        height: 50px;
+        width: 100%;
+    }
+    .table table tr:nth-child(1) td{
+        font-size: 10px;
+    }
+
+    .table table tr td:nth-child(1) img{
+        width: 50%;
+        height: 60%;
+    }
+    .table table tr td{
+        font-size: 10px;
+    }
+    .top_quantity, .down_quantity{
+        font-size: 15px;
+    }
+}/*end media 415*/

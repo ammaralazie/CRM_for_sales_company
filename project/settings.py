@@ -25,7 +25,7 @@ SECRET_KEY = 'aqv(wx1q#w@=ylr4)(!evgp@27m$6=1t9i$%rea-#_bvd8^6s4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['morning-temple-58908.herokuapp.com','0.0.0.0','127.0.0.1','localhost:8000']
+ALLOWED_HOSTS = ['morning-temple-58908.herokuapp.com','0.0.0.0','127.0.0.1','localhost:8000','localhost']
 
 
 # Application definition
@@ -158,7 +158,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '69b8a42a07713762cb9c786d2a1b7366'  # App Secret
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL='/media/'
