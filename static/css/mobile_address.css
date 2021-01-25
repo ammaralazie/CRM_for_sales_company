@@ -1,0 +1,69 @@
+@media screen and (max-width:1024px){
+
+    .info_address {
+        top: 15%;
+        right: 10%;
+        width: 80%;
+        height: 74%;
+    }   
+
+    input[type=text], input[type=email], input[type=number]{
+        width: 80%;
+        height: 140px;
+        padding: 22px;
+        font-size: 35px;
+    }
+    .title_address {
+        position: absolute;
+        z-index: 2;
+        font-size: 55px;
+        color: #fff;
+        top: 4%;
+        left: 6%;
+    }
+    button[type=submit] {
+        margin-top: 30px;
+        width: 310px;
+        height: 80px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 5px 4px 4px 3px #4b0b0b, -2px 0px 2px -2px #4b0b0b;
+        cursor: pointer;
+        font-size: 22px;
+    }
+
+    .info_address form {
+        height: 95%;
+    }
+
+}/*end media 1024px */
+
+
+@media screen and (max-width:420px){
+
+    .info_address{
+        top: 18%;
+        right: 7%;
+        width: 360px;
+        height: 564px;
+    }    
+
+    input[type=text], input[type=email], input[type=number]{
+        width: 86%;
+        height: 62px;
+        font-size: 20px;
+    }
+    .title_address {
+        position: absolute;
+        z-index: 2;
+        font-size: 35px;
+        top: 7%;
+        left: 6%;
+        font-weight: 900;
+    }
+
+    button[type=submit] {
+        width: 227px;
+        height: 47px;
+        font-size: 20px;
+    }
+}/*end media 1024px */
