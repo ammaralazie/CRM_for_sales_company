@@ -38,15 +38,14 @@
 }/*end media 1024px */
 
 
-@media screen and (max-width:480px){
+@media screen and (max-width:600px){
 
-    .info_address{
-        top: 15%;
-        right: 7%;
+    .info_address {
+        top: 18%;
+        right: 19%;
         width: 360px;
         height: 564px;
-    }    
-
+    }
     input[type=text], input[type=email], input[type=number]{
         width: 86%;
         height: 62px;
@@ -59,7 +58,6 @@
         top: 7%;
         left: 6%;
         font-weight: 900;
-        font-size: 20px;
     }
 
     button[type=submit] {
@@ -67,7 +65,7 @@
         height: 47px;
         font-size: 20px;
     }
-}/*end media 1024px */
+}/*end media 600px */
 
 @media screen and (max-width:380px){
     .info_address {
