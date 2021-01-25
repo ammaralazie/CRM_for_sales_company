@@ -72,6 +72,7 @@
     .info_address {
         right: 6%;
         width: 85%;
+        height: 80%;
     }    
 }/*end media 380px */
 
@@ -87,6 +88,12 @@
     left: 26px;
     font-size: 28px;
     top: 40px;
+    }
+
+    button[type=submit] {
+        width: 227px;
+        height: 35px;
+        font-size: 17px;
     }
 
 }/*end 340px*/
