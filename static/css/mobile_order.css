@@ -38,3 +38,9 @@
         font-size: 12px;
     }
 }/* end media 320*/
+
+@media screen and (max-width:260px){
+    .items .order_rservation{
+        font-size: 10px;
+    }
+}/* end media 260px*/
