@@ -150,8 +150,8 @@ USE_L10N = True
 USE_TZ = True
 
 #this for login directly usin facebook
-SOCIAL_AUTH_FACEBOOK_KEY = '3795523007173854'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '69b8a42a07713762cb9c786d2a1b7366'  # App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = '1973998052750019'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '88ca785e215dde8e60c062260c63a3e3'  # App Secret
 
 
 # Static files (CSS, JavaScript, Images)
