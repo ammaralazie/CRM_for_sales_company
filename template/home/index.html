@@ -48,8 +48,9 @@ products
                         ${{obj.PRDDiscount}}
                         {% else %}
                         ${{obj.PRDPrice}}
+                        {% endif %}
                     </div>
-                    {% endif %}
+                    
                     <div class="state">
                         {% if obj.PRDSate == "new"%}
                         <div class="new"><img src="{% static 'img/new.png' %}" alt=""></div>
