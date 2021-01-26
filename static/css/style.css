@@ -690,3 +690,16 @@ button.add_button {
     cursor: pointer;
     font-size: 17px;
 }
+
+.add_buttona {
+    width: 200px;
+    height: 35px;
+    text-decoration: none;
+    background: green;
+    color: #FFF;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 18px;
+    border-radius: 10px;
+}
