@@ -57,9 +57,13 @@ products
                     </div>
                 </div>
                 <div class="add_card">
+                    {% if user.is_authenticated %}
                     <button class="add_button" data-slug="{{obj.PRDSlug}}" data-action="add">
                     Add to Card
                     </button>
+                    {% else %}
+                    <a  class="add_button"  href="{% url 'login' %}">Add to Card</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
