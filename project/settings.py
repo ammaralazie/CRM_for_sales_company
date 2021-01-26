@@ -150,6 +150,7 @@ USE_L10N = True
 USE_TZ = True
 
 #this for login directly usin facebook
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 SOCIAL_AUTH_FACEBOOK_KEY = '1973998052750019'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '88ca785e215dde8e60c062260c63a3e3'  # App Secret
 
