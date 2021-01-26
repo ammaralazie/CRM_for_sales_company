@@ -703,3 +703,9 @@ button.add_button {
     margin-top: 18px;
     border-radius: 10px;
 }
+.add_card{
+    margin: auto;
+}
+.price{
+    display: flex;
+}
