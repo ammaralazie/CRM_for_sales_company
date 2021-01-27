@@ -12,6 +12,48 @@ Management Order
 
 {% block body %}
 {% if request.user.is_authenticated and request.user.username == 'Social' %}
+<div class="search_filter">
+    <div class="filter_wepper">
+        <p>
+         Search by :
+        </p>
+        <p>
+            <a href="" id="Date" >Date</a> 
+        </p>
+        <p>
+            <a href=""id="State">State</a> 
+        </p>
+        <p>
+            <a href="" id="Order">Order</a>
+        </p>
+    </div>
+    <div class="date_filter">
+        <div class="filter_form" >
+            <form action="" method="POST" class="form_date" id="form_date" >
+                <input type="search" name="filter_searcg" id="" placeholder="YY/MM/DD" >
+                <button type="submit">
+                    <i class="far fa-search"></i>
+                </button>
+            </form>
+            <form action="" method="POST" class="state_form" id="state_form">
+                <input type="search" name="filter_searcg" id="" placeholder="the state of the order item" >
+                <button type="submit">
+                    <i class="far fa-search"></i>
+                </button>
+            </form>
+
+            <form action="" method="POST" class="order_form" id="order_form">
+                <input type="search" name="filter_searcg" id="" placeholder="enter name of customer" >
+                <button type="submit">
+                    <i class="far fa-search"></i>
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
 <div class="requsets">
     <div class="wepper">
         {% for obj in obj  %}
@@ -68,9 +110,6 @@ Management Order
     </div>
     {% endif %}
     {% endfor %}
-
-    
-    
     </div>
 </div>
 {% endif %}
@@ -79,4 +118,5 @@ Management Order
 
 {% block script %}
 <script src="{% static 'js/managementorders.js' %}" ></script>
+<script src="{% static 'js/show_form_management.js' %}" ></script>
 {% endblock script %}

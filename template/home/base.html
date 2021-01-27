@@ -68,19 +68,30 @@
                        </div></a>
                        {% endif %}
                     </li>
+                    
                     <li>
+                        {% if request.path != '/Order_Manage/' %}
                         <div class="serch">
                             search&ThickSpace;<i class="fas fa-sort-down"></i>
 
                         </div>
+                        {% else %}
+                        <div class="serch" style="cursor: not-allowed;">
+                            search&ThickSpace;<i class="fas fa-sort-down"></i>
 
+                        </div>
+                        {% endif %}
+                   
+                        {% if request.path != '/Order_Manage/' %}
                         <div class="serch__nav s ">
                             <form action="" method="post" class="form_nav" >
                                 <input type="search" name="search" placeholder="search on products">
                                 <buttont class="button_nav"><i class="fas fa-search"></i></buttont>
                             </form>
                         </div>
+                         {% endif %}
                     </li>
+                   
                     <li>
                         <a href="">fdjhgfj</a>
                     </li>
@@ -116,8 +127,8 @@
     {% endblock body %}
     <script src="{% static 'js/homejs.js' %}" ></script>
     <script src="{% static 'js/mobile.js' %}" ></script>
+    <script> user="{{user}}"</script>
    <script>
-       user="{{user}}"
 function getToken(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {

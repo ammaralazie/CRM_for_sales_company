@@ -1,5 +1,6 @@
 var main=document.getElementsByClassName('serch__nav')
 var search=document.getElementsByClassName('serch')
+usr=user
 console.log(main)
 console.log(search)
 search[0].addEventListener('click',function(){
@@ -24,7 +25,7 @@ bod.children[0].onscroll=function(){
     this.classList.toggle('show_nav')
 }
 
-if(user==' AnonymousUser' ){
+if(usr == 'AnonymousUser' ){
     var mainc=document.getElementsByClassName('container_login')
     mainc[0].classList.toggle('container_show')
     var cover_login=document.getElementsByClassName('container_login')
