@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    background-color: #131313;
+}
+
+.backgroundvideo{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color:#131313;
+}
+.login{
+    position: absolute;
+    z-index:1;
+    width:100% ;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover_login{
+    background:transparent;
+    width: 400px;
+    height: 420px;
+    box-shadow: 4px 2px 12px #000, -2px -2px 12px #000;
+    border-radius: 2px; 
+}
+
+.form_login{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 2.5fr 4fr 1fr 1fr;
+    
+}
+
+.otherlogin{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.facebook{
+    width: 80%;
+    height: 45%;
+    background-color:rgb(59 88 148);
+    margin-bottom: 5px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    box-shadow:8px 9px 7px #000, -2px -2px 2px #000;
+}
+
+.facebook a ,.google a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 21px;
+}
+
+.google{
+    width: 80%;
+    height: 45%;
+    background-color:#ea4335;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    box-shadow:8px 9px 7px #000;
+
+}
+
+.form_login form{
+    position: relative;
+
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    
+}
+
+.form_login form input{
+    width: 73%;
+    height: 41px;
+    margin-bottom: 15px;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px #000;
+    text-align: center;
+    color: rgb(131 130 131);;
+    font-size: 17px;
+    letter-spacing: 2px;
+    font-weight: 800;
+   
+}
+
+.fa-eye{
+    color: rgb(142 139 139);
+    position: absolute;
+    top: 47%;
+    left: 77.8%;
+    cursor: pointer;
+}
+
+.form_login form button{
+    width: 155px;
+    height: 38px;
+    border-radius: 4px;
+    background-color: transparent;
+    outline: 2px solid #de2020;
+    box-shadow: 2px 2px 8px #a4c95a,-2px -2px 0px #a4c95a;
+    color:#a4c95a ;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.froget_password,.signup{
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    
+}
+.signup{
+    font-size:17px ;
+}
+.signup:hover a,.froget_password:hover a{
+    color: rgb(129, 14, 129);
+}
+.froget_password a,.signup a{
+    color: #776f6f;
+    text-decoration: none;
+}

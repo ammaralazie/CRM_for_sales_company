@@ -1,0 +1,111 @@
+*{
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+}
+.backgound_address{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.backgound_address img{
+    width: 100%;
+    height: 100%;
+    filter: blur(4px);
+}
+
+.title_address{
+    position: absolute;
+    z-index: 2;
+    font-size: 40px;
+    color: #fff;
+    top:4%;
+    left: 3%;
+}
+
+.info_address{
+    position: absolute;
+    z-index: 2;
+    top: 8%;
+    right: 35%;
+    width: 440px;
+    height: 555px;
+    background-color: beige;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.info_address form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+}
+input[type=text],input[type=email],input[type=number]{
+    width: 360px;
+    height: 60px;
+    background-color: beige;
+    font-size: 18px;
+    color: #131313;
+    padding: 5px;
+    box-shadow: 1px 2px 2px #4b0b0b, -1px 0px 2px #4b0b0b;
+    margin-top: 19px;
+}
+button[type=submit]{
+    margin-top: 30px;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    box-shadow:5px 4px 4px 3px #4b0b0b, -2px 0px 2px -2px #4b0b0b;
+    cursor: pointer;
+}
+
+.info_address form input:nth-child(1):focus{
+    border:1px solid #031a2b ;
+    box-shadow: 1px 2px 2px #031a2b, -1px 0px 2px#02263f;
+}
+
+.info_address form input:nth-child(2):focus{
+    border:1px solid #031a2b ;
+    box-shadow: 1px 2px 2px #031a2b, -1px 0px 2px#02263f;
+}
+
+.info_address form input:nth-child(3):focus{
+    border:1px solid #031a2b ;
+    box-shadow: 1px 2px 2px #031a2b, -1px 0px 2px#02263f;
+}
+
+.info_address form input:nth-child(3):focus{
+    border:1px solid #031a2b ;
+    box-shadow: 1px 2px 2px #031a2b, -1px 0px 2px#02263f;
+}
+
+.info_address form input:nth-child(4):focus{
+    border:1px solid #031a2b ;
+    box-shadow: 1px 2px 2px #031a2b, -1px 0px 2px#02263f;
+}
+
+.info_address form input:nth-child(5):focus{
+    border:1px solid #031a2b ;
+    box-shadow: 1px 2px 2px #031a2b, -1px 0px 2px#02263f;
+}
+
+.info_address form input:nth-child(6):focus{
+    border:1px solid #031a2b ;
+    box-shadow: 1px 2px 2px #031a2b, -1px 0px 2px#02263f;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
