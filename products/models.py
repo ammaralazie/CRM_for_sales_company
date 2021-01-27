@@ -46,7 +46,7 @@ class OrderItem(models.Model):
     quantity=models.IntegerField(default=0)
     date_add=models.DateTimeField(default=datetime.datetime.now)
     address=models.ForeignKey('Address',on_delete=models.CASCADE,null=True,blank=True)
-    complate=models.BooleanField(default=False)
+    complate=models.CharField(default='Cancel',max_length=20)
     def __str__(self):
         return str(self.customer)+ ' '+str(self.product)+' '+str(self.date_add)
 

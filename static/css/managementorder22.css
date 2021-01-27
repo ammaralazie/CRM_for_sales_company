@@ -1,0 +1,62 @@
+.form_state{
+    width: 100%;
+    height: 100%;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.cancel,.complat,.Postponement{
+    height: 26%;
+    background-color: rgb(51, 38, 38);
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15%;
+    border-radius: 7px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    font-size: 16px;
+    position: relative;
+    width: 60%;
+}
+
+.cancell,.Postponementt,.complatt{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: #a49d94;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10%;
+    left: 7%;
+    border-radius: 40px;
+}
+
+
+
+.cancel:hover input ,.complat:hover input ,.Postponement:hover input {
+    background-color:rgb(94, 89, 89);
+    cursor: pointer;
+} 
+
+.cancell.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}
+
+.Postponementt.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}
+.complatt.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}

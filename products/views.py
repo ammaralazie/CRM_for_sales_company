@@ -59,21 +59,25 @@ def addaddress(requset):
     return render(requset,'home_template/address.html')
 
 def mangement(requset):
-    body=json.loads(requset.body)
-    customer=body['customer']
-    slug=body['product']
-    action=body['action']
-    if requset.user.is_authenticated and requset.user.username == 'Social':
-        customer=User.objects.get(username=customer)
-        product=Product.objects.get(PRDSlug=slug)
-        order=OrderItem.objects.get(product=product ,customer=customer)
-        if action == 'add':
-            order.complate=True
-            order.save()
-        else:
-            order.complate=False
-            order.save()
+    data=json.loads(requset.body)
+    action=data['action']
+    product=data['product']
+    customer=data['customer']
 
-    return JsonResponse('data was Submited ' ,safe=False)
+    product=Product.objects.get(PRDSlug=product)
+    user=User.objects.get(username=customer)
+
+    order=OrderItem.objects.get(product=product,customer=user)
+    if action =='cancell':
+        order.complate='Cancellation'
+        order.save()
+    if action == 'Postponementt':
+        order.complate='Postponement'
+        order.save()
+    if action == 'complatt':
+        order.complate='complate'
+        order.save()
+    print('data :',data)
+    return JsonResponse('data was Submited ' ,safe=False)  
 
    
