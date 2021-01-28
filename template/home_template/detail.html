@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="{% static 'css/detail.css' %}">
     <link rel="stylesheet" href="{% static 'css/mobile_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/deatail_options.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datil of Order</title>
@@ -52,14 +53,43 @@
         <div class="state_product">
             <label for="">State of Product :</label>
             <div>
-                {% if obj.complate == True %}
-                complated
-                {% else %}
-                waiting ..
-                {% endif %}
+            {{obj.complate}}
             </div>
         </div>
         </div>
+    </div>
+
+    <div class="complate">
+        <div class="print_detail">
+           <p>Print</p> 
+        </div>
+        <form action=""  class="form_state"  method="POST" >
+            <div class="cancel">
+                {% if obj.complate == 'Cancellation' %}
+             <input class="cancell checkmark" type="radio" data-customer={{obj.customer}} data-product={{obj.product.PRDSlug}} >&ThinSpace; Cancel
+             {% else %}
+             <input class="cancell" type="radio" data-customer={{obj.customer}} data-product={{obj.product.PRDSlug}} >&ThinSpace; Cancel
+             {% endif %}
+             <span></span>
+            </div>
+            <div class="Postponement">
+                {% if obj.complate == 'Postponement' %}
+                <input  class="Postponementt checkmark" type="radio" data-customer={{obj.customer}} data-product={{obj.product.PRDSlug}}>&ThinSpace; Postponement
+                {% else %}
+                <input  class="Postponementt" type="radio" data-customer={{obj.customer}} data-product={{obj.product.PRDSlug}}>&ThinSpace; Postponement
+                {% endif %}
+                <span></span>
+            </div>
+            <div class="complat">
+                {% if obj.complate == 'complate' %}
+                <input class="complatt checkmark" type="radio" data-customer={{obj.customer}} data-product={{obj.product.PRDSlug}}>&ThinSpace; Complate
+                {% else %}
+                <input class="complatt" type="radio" data-customer={{obj.customer}} data-product={{obj.product.PRDSlug}}>&ThinSpace; Complate
+                {% endif %}
+                <span></span>
+            </div>
+               
+        </form>
     </div>
     {% endif %}
 </body>
