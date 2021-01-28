@@ -81,3 +81,61 @@ def mangement(requset):
     return JsonResponse('data was Submited ' ,safe=False)  
 
    
+def search_state(requset):
+    if requset.user.username == 'Social':
+        if requset.method =='GET':
+            data=requset.GET['filter_searcg']
+            filtr=OrderItem.objects.filter(complate=data)
+            if not filtr :
+                filtr=OrderItem.objects.filter(complate=data.lower())
+                if not filtr :
+                    filtr=OrderItem.objects.filter(complate=data[:1].lower())
+            if data =='cancel' or data =='Cancel' or data =='cencel' or data =='الغاء' or data =='لغاء' or data =='الغأ' or data =='لغأ':
+                data='Cancellation'
+                filtr=OrderItem.objects.filter(complate=data)
+                print('filter :',filtr)
+
+            if data =='complate' or data =='complated' or data =='complete' or data =='complet' or data =='مكتمل' or data =='مكتملة' or data =='موكتمل' or data =='موكتملة':
+                data='complate'
+                filtr=OrderItem.objects.filter(complate=data)
+
+            if data == 'postponement' or data == 'postponment' or data == 'postponemnt' or data == 'postponmnt' or data == 'تاجيل' or data == 'تأجيل' or data == 'مؤجلة' or data == 'موجلة' or data == 'مؤجل' or data == 'موجل':
+                data = 'Postponement'
+                filtr=OrderItem.objects.filter(complate=data)
+
+            return render(requset,'home_template/ordersmanagement.html' ,{'obj':filtr})
+
+def search_order(requset):
+        if requset.user.username == 'Social':
+            if requset.method =='GET':
+                data=requset.GET['filter_searcg']
+                customer=User.objects.get(username=data)
+                filtr=OrderItem.objects.filter(customer=customer)
+            return render(requset,'home_template/ordersmanagement.html' ,{'obj':filtr})
+
+def search_date(requset):
+            if requset.user.username == 'Social':
+                if requset.method =='GET':
+                    data=requset.GET['filter_searcg']
+                    filtr={}
+
+                if not filtr :
+                    mached=[]
+                    all=OrderItem.objects.all()
+                    for date in all :
+                        if str(date.date_add.date()) == data:
+                            mached.append(date)
+                        elif str(date.date_add.date()) == data.replace('/','-'):
+                            mached.append(date)
+                        
+                        elif str(date.date_add.date()) == data.replace(' ','-'):
+                            mached.append(date)
+                         
+                        elif str(date.date_add.date()) == data.replace(' ','-'):
+                            mached.append(date)
+                    print('matched :',mached)
+                    filtr=mached
+
+            return render(requset,'home_template/ordersmanagement.html' ,{'obj':filtr})
+
+

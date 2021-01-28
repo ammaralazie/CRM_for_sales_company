@@ -30,20 +30,23 @@ Management Order
     </div>
     <div class="date_filter">
         <div class="filter_form" >
-            <form action="" method="POST" class="form_date" id="form_date" >
-                <input type="search" name="filter_searcg" id="" placeholder="YY/MM/DD" >
+            <form action="{% url 'product:search_date' %}" method="GET" class="form_date" id="form_date" >
+                {% csrf_token %}
+                <input type="search" name="filter_searcg" id="" placeholder="YYYY/MM/DD" >
                 <button type="submit">
                     <i class="far fa-search"></i>
                 </button>
             </form>
-            <form action="" method="POST" class="state_form" id="state_form">
+            <form action="{% url 'product:search_state' %}" method="GET" class="state_form" id="state_form">
+                {% csrf_token %}
                 <input type="search" name="filter_searcg" id="" placeholder="the state of the order item" >
                 <button type="submit">
                     <i class="far fa-search"></i>
                 </button>
             </form>
 
-            <form action="" method="POST" class="order_form" id="order_form">
+            <form action="{% url 'product:search_order' %}" method="GET" class="order_form" id="order_form">
+               {% csrf_token %}
                 <input type="search" name="filter_searcg" id="" placeholder="enter name of customer" >
                 <button type="submit">
                     <i class="far fa-search"></i>
@@ -52,7 +55,11 @@ Management Order
         </div>
 
     </div>
-
+    {% if not obj %}
+    <p class="fail_serch">
+        There is no result
+    </p>
+    {% endif %}
 
 </div>
 <div class="requsets">

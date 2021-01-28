@@ -184,7 +184,7 @@ body::-ms-scrollbar-thumb{
 
 .serch__nav{
     position: absolute;
-    top: 100px;
+    top: -11100px;
     right: 10px;
     width: 600px;
     height: 80px;
@@ -231,6 +231,7 @@ body::-ms-scrollbar-thumb{
 .serch__nav.show_search{
     opacity: 1;
     z-index: 19;
+    top: 100px;
 }
 
 .form_nav:hover .button_nav{

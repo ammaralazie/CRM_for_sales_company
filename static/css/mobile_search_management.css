@@ -71,7 +71,12 @@
 .info_product {
 padding: 0;
 }
-
+p.fail_serch {
+    color: #fff;
+    margin: 27px 0 0 10px;
+    /* position: absolute; */
+    /* top: 40%; */
+}
 }/*mwdia 1030px*/
 
 

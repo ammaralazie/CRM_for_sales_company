@@ -9,4 +9,7 @@ urlpatterns = [
     path('qunatity/',quna,name='quna'),
     path('address/',addaddress,name='addaddress'),
     path('mangement/',mangement,name='mangement'),
+    path('state/',search_state,name='search_state'),
+    path('order/',search_order,name='search_order'),
+    path('date/',search_date,name='search_date'),    
 ]

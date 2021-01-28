@@ -143,3 +143,7 @@ body{
     top: -1px;
     left: 6px;
 }
+p.fail_serch {
+    color: #fff;
+    margin-left: 10px;
+}
