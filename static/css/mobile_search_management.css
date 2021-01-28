@@ -182,4 +182,11 @@ padding: 0;
     .filter_form form {
         perspective: 30px;
     }
+
+    .cancel, .complat, .Postponement {
+        font-size: 5px;
+        height: 15%;
+        width: 90%;
+        padding-left: 13px;
+    }
 }
