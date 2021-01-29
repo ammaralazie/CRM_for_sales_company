@@ -38,8 +38,11 @@ def management(requset):
         if requset.user.username == 'Social':
             obj=OrderItem.objects.all()
             return render(requset,'home_template/ordersmanagement.html' ,{'obj':obj})
+    else: return redirect('login')
 
 def detail(request ,id):
-    order=OrderItem.objects.get(id=id)
-    return render(request,'home_template/detail.html',{'obj':order})
-        
+    if request.user.is_authenticated and request.user.username == 'Social':
+        order=OrderItem.objects.get(id=id)
+        return render(request,'home_template/detail.html',{'obj':order})
+    else: return redirect('login')
+       
