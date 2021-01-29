@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +32,17 @@
 
         </div>
         <div class="login">
-            Plase &ThinSpace;<a href="{% url 'login' %}">Login</a>  
+                    <a href="{% url 'social:begin' 'facebook' %}" class="facebook" >
+                        <p>Login with facebook &ThinSpace;<i style="color: #3a5693;" class="fab fa-facebook-f"></i></p>
+                    </a>
+                    <a href="{% provider_login_url 'google' %}" class="google" >
+                        <p>Login with google &ThinSpace;<i class="fab fa-google"></i></p>
+                    </a>
+                    <a href="{% url 'login' %}" class="freezone" >
+                        <p>
+                            Login with our site &ThinSpace;<i class="fal fa-bags-shopping"></i>
+                        </p>
+                    </a>
         </div>
         <!--end blur-->
 
