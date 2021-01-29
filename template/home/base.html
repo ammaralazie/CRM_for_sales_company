@@ -125,9 +125,9 @@
     <!-- end navbar -->
     {% block body %}
     {% endblock body %}
+    <script>user="{{user}}"</script>
     <script src="{% static 'js/homejs.js' %}" ></script>
     <script src="{% static 'js/mobile.js' %}" ></script>
-    <script> user="{{user}}"</script>
    <script>
 function getToken(name) {
     let cookieValue = null;

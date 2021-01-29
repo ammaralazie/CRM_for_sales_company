@@ -22,7 +22,7 @@ bod.children[0].onscroll=function(){
     this.classList.toggle('show_nav')
 }
 
-if('{{request.user}}' == 'AnonymousUser' ){
+if(user == 'AnonymousUser' ){
     var mainc=document.getElementsByClassName('container_login')
     mainc[0].classList.toggle('container_show')
     var cover_login=document.getElementsByClassName('container_login')

@@ -107,10 +107,12 @@
     font-size: 25px;
     border-radius: 5px;
 }
-
-.print_detail p:hover{
-    transform: scale(1.1);
-    font-weight: 700;
+.cover>div>label.heddin_background{
+    background: none;
+    -webkit-text-fill-color:#000
+}
+.notallow{
+    cursor: not-allowed;
 }
 
 @media screen and (max-width:1024px){
