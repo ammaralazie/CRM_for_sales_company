@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/SWL.css' %}">
+
+    
     {% block head %}
     {% endblock head %}
     <title>
@@ -22,13 +25,15 @@
     <!--blur-->
         <div class="container_login">
             <div class="cover_login">   
-              
+
             </div>
+
         </div>
-        <!--end blur-->
         <div class="login">
             Plase &ThinSpace;<a href="{% url 'login' %}">Login</a>  
         </div>
+        <!--end blur-->
+
         <div class="close_span">
             <span></span>
             <span></span>

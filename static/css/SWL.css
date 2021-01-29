@@ -1,0 +1,61 @@
+@media screen and (max-width:1024px){
+    .login{
+        width: auto;
+        height: auto;
+        margin: 0px;
+    }
+    .login.show_login {
+        top: 47%;
+        left: 35%;
+    }
+}
+
+
+@media screen and (max-width:777px){
+    .cover_login {
+        width: 65%;
+        height: 48%;
+    }
+
+    .close_span.close_show {
+        top: 27%;
+        width: 46px;
+        right: 17%;
+    }
+    .login{
+        width: auto;
+        height: auto;
+        margin: 0px;
+    }
+    .login.show_login {
+        top: 47%;
+        left: 40%;
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width:555px){
+    .login.show_login {
+        top: 47%;
+        left: 35%;
+        font-size: 23px;
+    }
+}
+
+
+@media screen and (max-width:380px){
+    .cover_login {
+        width: 65%;
+        height: 40%;
+    }
+    .close_span.close_show {
+        top: 31%;
+        width: 39px;
+        right: 18%;
+    }
+    .login.show_login {
+        top: 47%;
+        left: 35%;
+        font-size: 23px;
+    }
+}
