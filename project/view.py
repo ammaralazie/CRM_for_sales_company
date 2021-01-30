@@ -1,12 +1,17 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from products.models import Product,OrderItem
-
+from datetime import timedelta
+import datetime
 from django.contrib.auth import login,authenticate
 from .forms import SignUpForm
 
 def home(request):
     obj=Product.objects.all()
     context={'obj':obj}
+    d=datetime.datetime.now()-timedelta(days=7)
+    while d<= datetime.datetime.now():
+        print('datetime : ',d.date())
+        d+=timedelta(days=1)
     return render(request,'home/index.html',context)
 
 
