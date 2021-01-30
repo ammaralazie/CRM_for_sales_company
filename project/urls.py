@@ -12,7 +12,10 @@ urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     path('', include('social_django.urls', namespace='social')),
     path('accounts/', include('allauth.urls')),
+
     path('',home,name='home'),
+     path('admin_management',admin_management,name='admin_management'),
+
     path('Order_Manage/',management,name='management'),
     path('<int:id>/',detail,name='detaill'),
     

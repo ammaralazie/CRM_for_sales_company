@@ -50,4 +50,8 @@ def detail(request ,id):
         order=OrderItem.objects.get(id=id)
         return render(request,'home_template/detail.html',{'obj':order})
     else: return redirect('login')
-       
+
+#_______admin_management____________#
+
+def admin_management(requset):
+    return render(requset,'home_template/admin_page.html',{})      

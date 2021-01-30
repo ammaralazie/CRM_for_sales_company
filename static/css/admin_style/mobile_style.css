@@ -1,0 +1,161 @@
+@media screen and (max-width:1024px){
+    .admin_totalOrder {
+        width: 30%;
+    }
+    .report {
+        width: 100%;
+    }
+
+}/*media 1024px*/
+
+@media screen and (max-width:777px){
+    .admin_date {
+        width: 35%;
+        height: 60%;
+    }
+    .admin_totalOrder {
+        width: 41%;
+    }
+
+    .admin_state {
+
+        width: 100%;
+    }
+    .admin_complate, .admin_cancel, .admin_postponement {
+        width: 100%;
+    }
+    .report>div>p{
+        width: 10%;
+    }
+}/*media 777px*/
+
+
+@media screen and (max-width:668px){
+    .admin_filter {
+        width: 100%;
+        height: 80px;
+    }
+    .admin_date {
+        width: 40%;
+        height: 40%;
+        font-size: 17px;
+    }
+    .admin_totalOrder {
+        width: 48%;
+        font-size: 15px;
+    }
+
+    .admin_state {
+
+        width: 100%;
+    }
+    .admin_complate, .admin_cancel, .admin_postponement {
+        font-size: 12px;
+    }
+
+    .admin_complate p, .admin_cancel p, .admin_postponement p {
+        font-size: 12px;
+    }
+
+    .admin_report {
+        margin-top: 30px;
+    }
+    .day1, .day2, .day3, .day4, .day5, .day6, .day7 {
+        margin-top: 13px;
+        height: 17px;
+    }
+    .day1>div, .day2>div, .day3>div, .day4>div, .day5>div, .day6>div, .day7>div {
+        height: 8px;
+    }
+    .report{
+        height: 450px;
+    }
+    .report>div>p {
+        font-size: 11px;
+    }
+    .date_cover.show_date_cover {
+        height: 345px;
+        top: 144%;
+        left: .5%;
+        z-index: 22;
+        overflow: auto;
+        width: 130%;
+    }
+
+    .field_date {
+        width: 98%;
+        height: 30px;
+        font-size: 15px;
+    }
+}/*media 668*/
+
+@media screen and (max-width:390px){
+    .admin_filter {
+        margin: 0;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+    .admin_date {
+        width: 35%;
+        height: 52%;
+        font-size: 13px;
+    }
+    .admin_totalOrder {
+        width: 52%;
+        font-size: 13px;
+    }
+
+    .admin_state {
+        margin: 5px;
+        width: 100%;
+        height: 45px;
+        padding: 4px;
+    }
+    .admin_complate, .admin_cancel, .admin_postponement {
+        font-size: 10px;
+        height: 80%;
+    }
+    .admin_complate p, .admin_cancel p, .admin_postponement p {
+        font-size: 10px;
+    }
+
+    .admin_report {
+        /* margin-top: 30px; */
+        margin: 0;
+        width: 100%;
+        height: 400px;
+    }
+    .day1, .day2, .day3, .day4, .day5, .day6, .day7 {
+        margin: 0;
+        margin-top: 30px;
+        height: 10px;
+        padding: 0;
+    }
+    .day1>div, .day2>div, .day3>div, .day4>div, .day5>div, .day6>div, .day7>div {
+        height: 6px;
+    }
+    .report {
+        height: 400px;
+        padding: 0;
+        justify-content: start;
+        margin-top: 35px;
+    }
+    .report>div>p {
+        font-size: 9px;
+        padding-left: 2px;
+    }
+    .date_cover.show_date_cover {
+        height: 280px;
+        top: 144%;
+        left: .5%;
+        z-index: 22;
+        overflow: auto;
+        width: 200%;
+    }
+
+    .field_date {
+        width: 90%;
+        height: 25px;
+        font-size: 12px;
+    }
+}/*media 390px*/
