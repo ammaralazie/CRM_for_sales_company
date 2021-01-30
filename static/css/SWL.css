@@ -62,11 +62,11 @@
 @media screen and (max-width:777px){
     .cover_login {
         width: 65%;
-        height: 48%;
+        height: 63%;
     }
 
     .close_span.close_show {
-        top: 27%;
+        top: 21%;
         width: 46px;
         right: 17%;
     }
