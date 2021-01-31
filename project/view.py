@@ -68,5 +68,9 @@ def admin_management(requset):
 #__________admin filter date __________#     
 
 def admin_filter(requset,d):
-    print('d :',d )
+    reangee=d-timedelta(days=7)
+    while d <=reangee:
+        filterr=OrderItem.objects.filter(date_add=d)
+        print('filter :', filterr)
+        d-=timedelta(days=7)
     pass

@@ -12,23 +12,22 @@
 <body>
    <div class="admin_container">
        <div class="admin_filter">
-           <div class="admin_date" id="admin_date">
-               date time <i class="fas fa-sort-down"></i>
-
-           </div>
-           <div class="date_cover" id="date_cover">
-            <div class="date_wepper">
-                {% for i in reportDate %}
-                <a href="{% url 'admin_filter' i %}">
+           <div class="admin_date" >
+              <p style="width: 100%; height: 100%;display: flex;justify-content: space-between;align-items: center;" id="admin_date">  date time <i class="fas fa-sort-down"></i> </p>
+            <div class="date_cover" id="date_cover">
+                <div class="date_wepper">
+                    {% for i in reportDate %}
+                    <a href="{% url 'admin_filter' i %}">
+                        
+                        <div class="field_date">
+                           {{i|date:'n/j'}}
+                        </div>
                     
-                    <div class="field_date">
-                       {{i|date:'n/j'}}
-                    </div>
-                
-                </a>
-                {% endfor %}
+                    </a>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+           </div>
            <div class="admin_totalOrder">
                total orders : 5687568
            </div>
