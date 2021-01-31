@@ -1,0 +1,216 @@
+.form_state{
+    width: 100%;
+    height: 100%;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.cancel,.complat,.Postponement{
+    height: 26%;
+    background-color: rgb(51, 38, 38);
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15%;
+    border-radius: 7px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+    width: 60%;
+}
+
+.cancell,.Postponementt,.complatt{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: #a49d94;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10%;
+    left: 7%;
+    border-radius: 40px;
+}
+
+
+
+.cancel:hover input ,.complat:hover input ,.Postponement:hover input {
+    background-color:rgb(94, 89, 89);
+    cursor: pointer;
+} 
+
+.cancell.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}
+
+.Postponementt.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}
+.complatt.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}
+
+.search_filter{
+    width: 70%;
+    margin: auto;
+    margin-top: 70px;
+    height: 200px;
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: -moz-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: -o-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    border-radius: 10px;
+    /* border: 2px solid #000; */
+    box-shadow: 2px 2px 7px #000;
+   
+
+}
+
+.filter_wepper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+    height: 35%;
+    position: relative;
+    perspective: 200px;
+}
+
+.filter_wepper p{
+    margin: 5px;
+}
+
+.filter_wepper p a{
+    color: #fff;
+    line-height: 2px;
+    text-decoration: none;
+}
+
+.filter_wepper p:nth-child(2):hover,.filter_wepper p:nth-child(3):hover,.filter_wepper p:nth-child(4):hover{
+    transform:scale(1.1);
+    text-decoration: underline;
+}
+
+.date_filter {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+}
+.filter_form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: transparent;
+}
+.filter_form form{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1.5s ease;
+    perspective: 700px;
+}
+input[name=filter_searcg]{
+    width: 70%;
+    height: 89%;
+    background: transparent;
+    border: .5px solid #000;
+    border-radius: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    box-shadow: 2px 2px 4px #000;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+}
+
+.filter_form button[type=submit]{
+    position: absolute;
+    top: 32%;
+    left: 17%;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    
+}
+
+.form_date{
+    opacity: 1;
+    z-index: 10;
+    top: -11110px;
+}
+.form_date.show_form_date{
+    opacity: 1;
+    z-index:10; 
+    top:0px; 
+}
+
+.state_form{
+    opacity: 0;
+    z-index: 0;
+    top: -10000px;
+
+}
+.order_form{
+    opacity: 0;
+    z-index: 0;
+    top: -10000px;
+}
+
+
+
+.state_form.show_state_form{
+    opacity: 1;
+    z-index: 11;
+    top: 0px;
+
+}
+.order_form.show_order_form{
+    opacity: 1;
+    z-index: 11;
+    top: 0px;
+}
+input[type=search]:focus{
+
+    animation-name: name;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 2;
+}
+
+@keyframes name{
+    0%,20%,40%,60%,80%{
+        transform:rotateY(.5deg);
+    }
+    10%,30%,50%,70%,90%{
+        transform:rotateY(-.5deg);
+
+    }
+    100%{
+        transform:rotateY(0deg);
+    }
+}

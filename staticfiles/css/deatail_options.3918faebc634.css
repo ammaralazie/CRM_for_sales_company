@@ -1,0 +1,243 @@
+.alldetail {
+    margin: auto;
+}
+
+.complate {
+    background: #222121;
+    margin: auto;
+    width: 90%;
+    margin-top: 10px;
+    height: 120px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 2px #000;
+    perspective: 600px;
+}
+
+.form_state{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    padding: 10px;
+    direction: rtl;
+    margin-right: 90px;
+    
+}
+.cancel,.complat,.Postponement{
+    height: 60%;
+    background-color: rgb(51, 38, 38);
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 4%;
+    border-radius: 5px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    font-size: 25px;
+    position: relative;
+    z-index: 1;
+    width: 20%;
+    color: #c9c7c7;
+    text-align: center;
+}
+
+.cancell,.Postponementt,.complatt{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: #a49d94;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 29%;
+    left: 7%;
+    border-radius: 40px;
+}
+
+
+
+.cancel:hover input ,.complat:hover input ,.Postponement:hover input {
+    background-color:rgb(94, 89, 89);
+    cursor: pointer;
+} 
+
+.cancell.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}
+
+.Postponementt.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}
+.complatt.checkmark{
+    border: 6px solid #a49d94;
+    background-color: rgb(122 21 72);
+    padding: 0px;
+}
+
+
+
+.print_detail {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.print_detail p {
+    width: 45%;
+    height: 50%;
+    background: #322626;
+    margin: 10px;
+    /* margin-left: 93px; */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border-radius: 5px;
+}
+.cover>div>label.heddin_background{
+    background: none;
+    -webkit-text-fill-color:#000
+}
+.notallow{
+    cursor: not-allowed;
+}
+
+@media screen and (max-width:1024px){
+
+    .alldetail {
+        margin-top: 15%;
+    }
+    .form_state{
+        width: 80%;
+    }
+    .cancel,.complat,.Postponement{
+        font-size: 20px;
+        width: 30%;
+    }
+
+}/*media 1024px */
+
+@media screen and (max-width:777px){
+
+    .alldetail {
+        margin-top: 15%;
+    }
+    .form_state{
+        width: 80%;
+    }
+    .cancel,.complat,.Postponement{
+        font-size: 14px;
+        width: 31%;
+    }
+
+    .cancell, .Postponementt, .complatt {
+
+        width: 20px;
+        height: 20px;
+
+    }
+    .cancell.checkmark{
+        border: 3px solid #a49d94;
+        background-color: rgb(122 21 72);
+        padding: 0px;
+    }
+    .complatt.checkmark{
+        border: 4px solid #a49d94;
+        background-color: rgb(122 21 72);
+        padding: 0px;
+    }
+
+    .cancell.checkmark{
+        border: 4px solid #a49d94;
+        background-color: rgb(122 21 72);
+        padding: 0px;
+    }
+    .Postponementt.checkmark{
+        border:4px solid #a49d94;
+        background-color: rgb(122 21 72);
+        padding: 0px;
+    }
+    
+    
+    .alldetail {
+        margin-top: 10%;
+    }
+
+}/*media 777px */
+
+@media screen and (max-width:550px){
+
+    .form_state {
+        margin-right: 0px;
+        width: 85%;
+    }
+    .cancel,.complat,.Postponement{
+        font-size: 9px;
+        height: 40%;
+    }
+
+    .cancell, .Postponementt, .complatt {
+        width: 13px;
+        height: 13px;
+    }
+
+    .alldetail {
+        margin-top: 10%;
+    }
+
+    .print_detail {
+        width: 16%;
+
+    }
+    .cancell.checkmark {
+        border: 4px solid #a49d94;
+        background-color: rgb(122 21 72);
+        padding: 0px;
+    }
+
+    .print_detail p{
+        width: 100%;
+        font-size: 20px;
+
+    }
+
+    .print_detail p {
+        width: 100%;
+        font-size: 11px;
+        height: 35%;
+    }
+
+    .complatt.checkmark{
+        border: 3px solid #a49d94;
+        background-color: rgb(122 21 72);
+        padding: 0px;
+    }
+
+    .cancell.checkmark{
+        border: 3px solid #a49d94;
+        background-color: rgb(122 21 72);
+        padding: 0px;
+    }
+    .Postponementt.checkmark{
+        border:3px solid #a49d94;
+        background-color: rgb(122 21 72);
+        padding: 0px;
+    }
+
+}/*media 550px */
+
