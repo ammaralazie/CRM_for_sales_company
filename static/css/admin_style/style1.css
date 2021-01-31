@@ -228,7 +228,7 @@ body{
     left: .5%;
     border-radius: 7px;
     box-shadow: 1px 5px 3px #000, -4px 0px 2px #000;
-    width: 100%;
+    width: 20%;
     padding: 10px;
     overflow: hidden;
     transition: all 1s ease;
@@ -238,8 +238,8 @@ body{
 
 .date_cover.show_date_cover{
     height: 450px;
-    top: 102%;
-    left: .5%;
+    top: 23%;
+    left: 8.5%;
     z-index: 22;
     overflow: auto;
 }
@@ -267,4 +267,9 @@ body{
 
 .field_date:hover{
     background-color: rgb(43, 43, 43);
+}
+
+.date_wepper a{
+    text-decoration: none;
+    color: #fff;
 }

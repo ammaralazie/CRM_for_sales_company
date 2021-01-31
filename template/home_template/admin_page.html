@@ -14,56 +14,21 @@
        <div class="admin_filter">
            <div class="admin_date" id="admin_date">
                date time <i class="fas fa-sort-down"></i>
-            <div class="date_cover" id="date_cover">
-                <div class="date_wepper">
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                    <div class="field_date">
-                        2/23 to 2/30
-                    </div>
-                </div>
-            </div>
+
            </div>
+           <div class="date_cover" id="date_cover">
+            <div class="date_wepper">
+                {% for i in reportDate %}
+                <a href="{% url 'admin_filter' i %}">
+                    
+                    <div class="field_date">
+                       {{i|date:'n/j'}}
+                    </div>
+                
+                </a>
+                {% endfor %}
+            </div>
+        </div>
            <div class="admin_totalOrder">
                total orders : 5687568
            </div>

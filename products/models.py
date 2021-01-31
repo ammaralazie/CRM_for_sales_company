@@ -57,6 +57,22 @@ class OrderItem(models.Model):
             totle=self.quantity * self.product.PRDPrice
         return totle
 
+    def totalorders(self):
+        x=self.complate.all().count()
+        return x
+    def stateorder(self):
+        countcancellation=0
+        countcomplate=0
+        countpostpon=0
+        for i in self.complate.all():
+            if i == 'Cancellation':
+                countcancellation+=1
+            elif i== 'complate':
+                countcomplate+=1
+            else:
+                countpostpon+=1
+        return {'cancellation':countcancellation,'complated':countcomplate,'postponment':countpostpon}
+
 
 #_____________________#
 

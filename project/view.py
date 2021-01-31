@@ -54,4 +54,19 @@ def detail(request ,id):
 #_______admin_management____________#
 
 def admin_management(requset):
-    return render(requset,'home_template/admin_page.html',{})      
+    _date=[]
+    reportDate=[]
+    d=datetime.datetime.now()
+    for i in range(8):
+        reportDate.append(d)
+        x=str(d.date())+'  to  '
+        d-=timedelta(days=7)
+        x+=str(d.date())
+        _date.append(x)
+    return render(requset,'home_template/admin_page.html',{'d':_date,'reportDate':reportDate}) 
+
+#__________admin filter date __________#     
+
+def admin_filter(requset,d):
+    print('d :',d )
+    pass

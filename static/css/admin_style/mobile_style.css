@@ -5,6 +5,9 @@
     .report {
         width: 100%;
     }
+    .date_cover.show_date_cover {
+        width: 160%;
+    }
 
 }/*media 1024px*/
 
