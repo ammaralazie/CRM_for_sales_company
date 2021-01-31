@@ -46,7 +46,7 @@ class OrderItem(models.Model):
     quantity=models.IntegerField(default=0)
     date_add=models.DateTimeField(default=datetime.datetime.now)
     address=models.ForeignKey('Address',on_delete=models.CASCADE,null=True,blank=True)
-    complate=models.CharField(default='Cancel',max_length=20)
+    complate=models.CharField(null=True,blank=True, max_length=20)
     def __str__(self):
         return str(self.customer)+ ' '+str(self.product)+' '+str(self.date_add)
 
@@ -60,19 +60,7 @@ class OrderItem(models.Model):
     def totalorders(self):
         x=self.complate.all().count()
         return x
-    def stateorder(self):
-        countcancellation=0
-        countcomplate=0
-        countpostpon=0
-        for i in self.complate.all():
-            if i == 'Cancellation':
-                countcancellation+=1
-            elif i== 'complate':
-                countcomplate+=1
-            else:
-                countpostpon+=1
-        return {'cancellation':countcancellation,'complated':countcomplate,'postponment':countpostpon}
-
+   
 
 #_____________________#
 

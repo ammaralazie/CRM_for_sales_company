@@ -4,6 +4,8 @@ from datetime import timedelta
 import datetime
 from django.contrib.auth import login,authenticate
 from .forms import SignUpForm
+from django.db.models import Q
+import dateutil.parser
 
 def home(request):
     obj=Product.objects.all()
@@ -59,18 +61,52 @@ def admin_management(requset):
     d=datetime.datetime.now()
     for i in range(8):
         reportDate.append(d)
-        x=str(d.date())+'  to  '
         d-=timedelta(days=7)
-        x+=str(d.date())
-        _date.append(x)
     return render(requset,'home_template/admin_page.html',{'d':_date,'reportDate':reportDate}) 
 
 #__________admin filter date __________#     
 
 def admin_filter(requset,d):
-    reangee=d-timedelta(days=7)
-    while d <=reangee:
-        filterr=OrderItem.objects.filter(date_add=d)
-        print('filter :', filterr)
+    #dd=''
+   # for i in range(10):
+   #     dd+=d[i]
+   # if dd:
+   #     datee=datetime.datetime.strptime(dd,'%Y-%m-%d').date()
+   # week=d-timedelta(days=7)
+    coverttodate=dateutil.parser.parse(d)
+    enddate=dateutil.parser.parse(d)-timedelta(days=6) 
+    convertDate=datetime.datetime.combine(datetime.datetime.date(enddate),datetime.datetime.time(dateutil.parser.parse('00:00:00'))) 
+    endDate=datetime.datetime.combine(datetime.datetime.date(coverttodate),datetime.datetime.time(dateutil.parser.parse('23:59:59'))) 
+    fillter=OrderItem.objects.filter(date_add__range=[convertDate,endDate])
+    print(fillter)
+    
+    countCanel=0
+    countComplate=0
+    countPostpon=0
+    counttotalorders=0
+
+    for i in fillter:
+        if i.address:
+            if i.complate:
+                counttotalorders+=1
+            if i.complate == 'complate':
+                countComplate+=1
+            elif i.complate == 'Cancel':
+                countCanel+=1
+            elif i.complate =='Postponement':
+                countPostpon+=1
+    reportDate=[]
+    d=datetime.datetime.now()
+    for i in range(8):
+        reportDate.append(d)
         d-=timedelta(days=7)
-    pass
+    context={
+        'reportDate':reportDate,
+        'countCanel':countCanel,
+        'countComplate':countComplate,
+        'countPostpon':countPostpon,
+        'counttotalorders':counttotalorders,
+        'coverttodate':coverttodate,
+        'fillter':fillter,
+    }
+    return render(requset,'home_template/admin_page.html',context) 

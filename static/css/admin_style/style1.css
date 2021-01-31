@@ -9,7 +9,9 @@ body{
     color: #fff;
     height: 100%;
 }
-
+.navbar{
+    position: static;
+}
 .admin_container{
     margin: auto;
     width: 90%;

@@ -80,7 +80,8 @@ TEMPLATES = [
                 #this for login directly usin facebook
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
-                'products.context_processor.allorders'
+                'products.context_processor.allorders',
+                'products.context_processor.everyorder',
             ],
         },
     },

@@ -1,19 +1,19 @@
+{% extends 'home/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    {% block head %}
     <link rel="stylesheet" href="{% static 'css/admin_style/style1.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_style/mobile_style.css' %}">
-    <title>admin</title>
-</head>
-<body>
+    {% endblock head %}
+    {% block title %}
+     admin
+    {% endblock title %}
+
+{% block body %}
    <div class="admin_container">
        <div class="admin_filter">
            <div class="admin_date" >
-              <p style="width: 100%; height: 100%;display: flex;justify-content: space-between;align-items: center;" id="admin_date">  date time <i class="fas fa-sort-down"></i> </p>
+              <p style="width: 100%; height: 100%;display: flex;justify-content: space-between;align-items: center;" id="admin_date">  date :{% if coverttodate %}&ThinSpace;{{coverttodate|date:'n/j'}}{% else %}&ThinSpace;All{% endif %}  <i class="fas fa-sort-amount-down"></i> </p>
             <div class="date_cover" id="date_cover">
                 <div class="date_wepper">
                     {% for i in reportDate %}
@@ -25,30 +25,54 @@
                     
                     </a>
                     {% endfor %}
+                    <a href="{% url 'admin_management' %}">
+                        
+                        <div class="field_date">
+                           All&ThinSpace;&ThinSpace;<i class="fas fa-reply-all"></i>
+                        </div>
+                    
+                    </a>
                 </div>
             </div>
            </div>
            <div class="admin_totalOrder">
-               total orders : 5687568
+               {% if counttotalorders >= 0 %}
+               total orders : {{counttotalorders}}
+               {% else %}
+               total orders : {{everyorder}}
+               {% endif %}
            </div>
            
        </div>
-       <div class="admin_state">
-           <a href=""  class="_complate">
-            <div class="admin_complate">
-                complated:<p>9999</p> 
-             </div>
-           </a>
+    <div class="admin_state">
+        
+        <a href=""  class="_complate">
+        <div class="admin_complate">
+            {% if countCanel >= 0 %}
+            canceled:<p>{{countCanel}}</p> 
+            {% else %}
+            canceled:<p>{{countCa}}</p> 
+            {% endif %}
+            </div>
+        </a>
 
         <a href="" class="_cancel">
             <div class="admin_cancel">
-                canceled:<p>9999</p> 
+                {% if countComplate >= 0%}
+                complated:<p>{{countComplate}}</p> 
+                {% else %}
+                complated:<p>{{countCo}}</p> 
+                {% endif %}
             </div>
         </a>
 
         <a class="_postponement" href="">
             <div class="admin_postponement" >
-                postpon:<p>9999</p> 
+                {% if countPostpon >= 0%}
+                postpon:<p>{{countPostpon}}</p> 
+                {% else %}
+                postpon:<p>{{countPo}}</p> 
+                {% endif %}
             </div>
         </a>
     </div>
@@ -85,6 +109,12 @@
         </div>
     </div>
    </div> 
-   <script src="{% static 'js/filter_list_admin.js' %}"></script>
-</body>
-</html>
+   {% for fillter in fillter %}
+   <br>
+   {{fillter}}
+   {% endfor %}
+{% endblock body %}
+
+{% block script %}
+<script src="{% static 'js/filter_list_admin.js' %}"></script>
+{% endblock script %}
