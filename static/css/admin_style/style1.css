@@ -12,6 +12,17 @@ body{
 .navbar{
     position: static;
 }
+.date_cover::-webkit-scrollbar{
+    background-color: #2c2c2c;
+}
+
+.date_cover::-webkit-scrollbar-track{
+    border-radius: 4px;
+    width: 3px;
+}
+.date_cover::-webkit-scrollbar-thumb{
+    background-color: rgb(151, 2, 2);
+}
 .admin_container{
     margin: auto;
     width: 90%;

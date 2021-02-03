@@ -4,6 +4,8 @@
     {% block head %}
     <link rel="stylesheet" href="{% static 'css/admin_style/style1.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_style/mobile_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_style/search_by_type.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_style/optinn_admin_mobile.css' %}">
     {% endblock head %}
     {% block title %}
      admin
@@ -11,20 +13,102 @@
 
 {% block body %}
    <div class="admin_container">
+       <div class="search_by">
+           <form id="submit" action="{% url 'admin_management' %}"  method="POST">
+               {% csrf_token %}
+              <div class="date">
+                
+                <label class="optint_page" for="">date
+                    {% if time == 'date' %}
+                    <input type="radio" name="time" value="date" checked="checked" id="1">
+                    {% else %}
+                    <input type="radio" name="time" value="date"  id="1">
+                    {% endif %}
+                    <span class="optionmark"></span>
+                </label>
+              </div>
+              <div class="week">
+                <label class="optint_page" for="">week
+                    {% if time == 'week' %}
+                    <input type="radio" name="time" value="week" checked="checked" id="2">
+                    {% else %}
+                    <input type="radio" name="time" value="week"  id="1">
+                    {% endif %}
+                    <span class="optionmark"></span>
+                </label>
+              </div>
+             <div class="day">
+                
+                <label class="optint_page" for="">day
+                    {% if time == 'day' %}
+                    <input type="radio" name="time" value="day" checked="checked" id="3">
+                    {% else %}
+                    <input type="radio" name="time" value="day" id="1">
+                    {% endif %}
+                    <span class="optionmark"></span>
+                </label>
+             </div>
+           </form>
+       </div>
        <div class="admin_filter">
            <div class="admin_date" >
-              <p style="width: 100%; height: 100%;display: flex;justify-content: space-between;align-items: center;" id="admin_date">  date :{% if coverttodate %}&ThinSpace;{{coverttodate|date:'n/j'}}{% else %}&ThinSpace;All{% endif %}  <i class="fas fa-sort-amount-down"></i> </p>
+              <p style="width: 100%; height: 100%;display: flex;justify-content: space-between;align-items: center;" id="admin_date"> 
+                {{time}} :
+                {% if time == 'day' %}
+                    {% if coverttodate %}
+                    &ThinSpace;
+                    {{coverttodate|date:'g :i .A'}}
+                    {% else %}
+                    &ThinSpace;All
+                    {% endif %} 
+                {% endif %}
+
+                {% if time == 'week' %}
+                {% if coverttodate %}
+                &ThinSpace;
+                {{coverttodate|date:'n/ j'}}
+                {% else %}
+                &ThinSpace;All
+                {% endif %} 
+            {% endif %}
+                <i class="fas fa-sort-amount-down"></i> </p>
             <div class="date_cover" id="date_cover">
                 <div class="date_wepper">
-                    {% for i in reportDate %}
-                    <a href="{% url 'admin_filter' i %}">
+                    {% if time == 'week' %}
+                        {% for i in reportDate %}
+                        <a href="{% url 'admin_filter' time i %}">
+                            
+                            <div class="field_date">
+                            {{i|date:'n/j'}}
+                            </div>
                         
-                        <div class="field_date">
-                           {{i|date:'n/j'}}
-                        </div>
-                    
-                    </a>
-                    {% endfor %}
+                        </a>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if time == 'day' %}
+                        {% for i in reportDate %}
+                        <a href="{% url 'admin_filter' time i %}">
+                            
+                            <div class="field_date">
+                            {{i|date:'g:i .A'}}
+                            </div>
+                        
+                        </a>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if time == 'date' %}
+                        {% for i in reportDate %}
+                        <a href="{% url 'admin_filter' time i %}">
+                            
+                            <div class="field_date">
+                            {{i|date:'Y/ n/ j'}}
+                            </div>
+                        
+                        </a>
+                        {% endfor %}
+                    {% endif %}
                     <a href="{% url 'admin_management' %}">
                         
                         <div class="field_date">
@@ -117,4 +201,5 @@
 
 {% block script %}
 <script src="{% static 'js/filter_list_admin.js' %}"></script>
+<script src="{% static 'js/admin_page/option_type.js' %}"></script>
 {% endblock script %}

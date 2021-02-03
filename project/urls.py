@@ -15,7 +15,7 @@ urlpatterns = [
 
     path('',home,name='home'),
     path('admin_management/',admin_management,name='admin_management'),
-    path('admin_filter/<d>',admin_filter,name='admin_filter'),
+    path('admin_filter/<time>/<d>',admin_filter,name='admin_filter'),
 
     path('Order_Manage/',management,name='management'),
     path('<int:id>/',detail,name='detaill'),

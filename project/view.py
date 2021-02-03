@@ -6,6 +6,7 @@ from django.contrib.auth import login,authenticate
 from .forms import SignUpForm
 from django.db.models import Q
 import dateutil.parser
+from .utils import date_list
 
 def home(request):
     obj=Product.objects.all()
@@ -56,35 +57,56 @@ def detail(request ,id):
 #_______admin_management____________#
 
 def admin_management(requset):
+    time=''
+    print('method ;',requset.method)
+    if requset.method == 'POST':
+        time=requset.POST['time']
     _date=[]
-    reportDate=[]
-    d=datetime.datetime.now()
-    for i in range(8):
-        reportDate.append(d)
-        d-=timedelta(days=7)
-    return render(requset,'home_template/admin_page.html',{'d':_date,'reportDate':reportDate}) 
+    reportDate=date_list(time)
+    return render(requset,'home_template/admin_page.html',{'d':_date,'reportDate':reportDate ,'time':time}) 
 
 #__________admin filter date __________#     
 
-def admin_filter(requset,d):
+def admin_filter(requset,time,d):
     #dd=''
    # for i in range(10):
    #     dd+=d[i]
    # if dd:
    #     datee=datetime.datetime.strptime(dd,'%Y-%m-%d').date()
    # week=d-timedelta(days=7)
-    coverttodate=dateutil.parser.parse(d)
-    enddate=dateutil.parser.parse(d)-timedelta(days=6) 
-    convertDate=datetime.datetime.combine(datetime.datetime.date(enddate),datetime.datetime.time(dateutil.parser.parse('00:00:00'))) 
-    endDate=datetime.datetime.combine(datetime.datetime.date(coverttodate),datetime.datetime.time(dateutil.parser.parse('23:59:59'))) 
-    fillter=OrderItem.objects.filter(date_add__range=[convertDate,endDate])
-    print(fillter)
+    fillter=''
+    coverttodate=''
+    enddate=''
+    convertDate=''
+    endDate=''
+    if time == 'week':
+        timusa=dateutil.parser.parse(d)
+        coverttodate=timusa
+        enddate=dateutil.parser.parse(d)-timedelta(days=6) 
+        convertDate=datetime.datetime.combine(datetime.datetime.date(enddate),datetime.datetime.time(dateutil.parser.parse('00:00:00'))) 
+        endDate=datetime.datetime.combine(datetime.datetime.date(coverttodate),datetime.datetime.time(dateutil.parser.parse('23:59:59'))) 
+        fillter=OrderItem.objects.filter(date_add__range=[convertDate,endDate])
+    if time == 'day':
+        coverttodate=dateutil.parser.parse(d)
+        timusa=coverttodate-timedelta(hours=3)
+        coverttodate=timusa.strftime('%Y-%m-%d %H:%M:%S')
+        enddate=dateutil.parser.parse(coverttodate)-timedelta(hours=1)
+        enddate=enddate.strftime('%Y-%m-%d %H:%M:%S')
+        fillter=OrderItem.objects.filter(date_add__range=[enddate,coverttodate])
     
+    if time == 'date':
+        timusa=dateutil.parser.parse(d)
+        coverttodate=timusa
+        enddate=dateutil.parser.parse(d)-timedelta(days=30) 
+        convertDate=datetime.datetime.combine(datetime.datetime.date(enddate),datetime.datetime.time(dateutil.parser.parse('00:00:00'))) 
+        endDate=datetime.datetime.combine(datetime.datetime.date(coverttodate),datetime.datetime.time(dateutil.parser.parse('23:59:59'))) 
+        fillter=OrderItem.objects.filter(date_add__range=[convertDate,endDate])
+
     countCanel=0
     countComplate=0
     countPostpon=0
     counttotalorders=0
-
+    print('filter :',fillter)
     for i in fillter:
         if i.address:
             if i.complate:
@@ -95,18 +117,15 @@ def admin_filter(requset,d):
                 countCanel+=1
             elif i.complate =='Postponement':
                 countPostpon+=1
-    reportDate=[]
-    d=datetime.datetime.now()
-    for i in range(8):
-        reportDate.append(d)
-        d-=timedelta(days=7)
+    reportDate=date_list(time)
     context={
         'reportDate':reportDate,
         'countCanel':countCanel,
         'countComplate':countComplate,
         'countPostpon':countPostpon,
         'counttotalorders':counttotalorders,
-        'coverttodate':coverttodate,
+        'coverttodate':timusa+timedelta(hours=3),
+        'time':time,
         'fillter':fillter,
     }
     return render(requset,'home_template/admin_page.html',context) 
