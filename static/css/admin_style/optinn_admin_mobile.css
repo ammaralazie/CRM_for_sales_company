@@ -38,11 +38,12 @@
     }
     .search_by>form>div>label{
         font-size: 12px;
+        width: 100%;
     }
     .search_by>form>div>label .optionmark {
         width: 14px;
         height: 14px;
-        margin-right: 16px;
+        margin-right: 6px;
     }
     .search_by>form>div>label>input:checked ~ .optionmark{
         border: 4px solid rgb(172, 172, 172);
