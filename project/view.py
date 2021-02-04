@@ -113,7 +113,7 @@ def admin_filter(requset,time,d):
                 counttotalorders+=1
             if i.complate == 'complate':
                 countComplate+=1
-            elif i.complate == 'Cancel':
+            elif i.complate == 'Cancellation':
                 countCanel+=1
             elif i.complate =='Postponement':
                 countPostpon+=1

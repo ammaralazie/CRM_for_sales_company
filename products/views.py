@@ -75,16 +75,17 @@ def mangement(requset):
         product=Product.objects.get(PRDSlug=product)
         user=User.objects.get(username=customer)
 
-        order=OrderItem.objects.get(product=product,customer=user)
-        if action =='cancell':
-            order.complate='Cancellation'
-            order.save()
-        if action == 'Postponementt':
-            order.complate='Postponement'
-            order.save()
-        if action == 'complatt':
-            order.complate='complate'
-            order.save()
+        order=OrderItem.objects.filter(product=product,customer=user)
+        for order in order:
+            if action =='cancell':
+                order.complate='Cancellation'
+                order.save()
+            if action == 'Postponementt':
+                order.complate='Postponement'
+                order.save()
+            if action == 'complatt':
+                order.complate='complate'
+                order.save()
         print('data :',data)
         return JsonResponse('data was Submited ' ,safe=False)  
     else:return redirect('login')

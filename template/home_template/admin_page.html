@@ -6,6 +6,52 @@
     <link rel="stylesheet" href="{% static 'css/admin_style/mobile_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_style/search_by_type.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_style/optinn_admin_mobile.css' %}">
+    <style>
+        .maximimcomplate{
+            width: 90%;
+            height:40px;
+            display: flex;
+            align-items: center;
+            margin-top: 60px;
+            box-shadow: 0px 2px 2px #000;
+            padding: 5px;
+        }
+        .maximimcomplate>p{
+            font-size: 20px;
+            background: #22c1c3;
+            background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
+            background: -moz-linear-gradient(to right, #fdbb2d, #22c1c3);
+            background: -o-linear-gradient(to right, #fdbb2d, #22c1c3);
+            background: linear-gradient(to right, #fdbb2d, #22c1c3);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            -ms-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+            -ms-text-fill-color: transparent;
+            margin-left: 5px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media screen and (max-width:600px){
+            .maximimcomplate>p{
+                font-size: 15px;
+            }
+        }/*end media */
+        @media screen and (max-width:380px){
+            .maximimcomplate>p{
+                font-size: 12px;
+            }
+        }/*end media */
+        @media screen and (max-width:340px){
+            .maximimcomplate>p{
+                font-size: 10px;
+            }
+        }/*end media */
+    </style>
     {% endblock head %}
     {% block title %}
      admin
@@ -54,6 +100,7 @@
            <div class="admin_date" >
               <p style="width: 100%; height: 100%;display: flex;justify-content: space-between;align-items: center;" id="admin_date"> 
                 {{time}} :
+        {% if request.user.is_authenticated %}
                 {% if time == 'day' %}
                     {% if coverttodate %}
                     &ThinSpace;
@@ -71,9 +118,11 @@
                 &ThinSpace;All
                 {% endif %} 
             {% endif %}
+        {% endif %}
                 <i class="fas fa-sort-amount-down"></i> </p>
             <div class="date_cover" id="date_cover">
                 <div class="date_wepper">
+        {% if request.user.is_authenticated %}
                     {% if time == 'week' %}
                         {% for i in reportDate %}
                         <a href="{% url 'admin_filter' time i %}">
@@ -109,6 +158,7 @@
                         </a>
                         {% endfor %}
                     {% endif %}
+        {% endif %}
                     <a href="{% url 'admin_management' %}">
                         
                         <div class="field_date">
@@ -119,6 +169,7 @@
                 </div>
             </div>
            </div>
+
            <div class="admin_totalOrder">
                {% if counttotalorders >= 0 %}
                total orders : {{counttotalorders}}
@@ -128,6 +179,7 @@
            </div>
            
        </div>
+       {% if request.user.is_authenticated %}
     <div class="admin_state">
         
         <a href=""  class="_complate">
@@ -160,43 +212,38 @@
             </div>
         </a>
     </div>
-
+{% endif %}
+<div class="maximimcomplate">
+   <p> Maximum orders for the day :&ThinSpace;{{max}}</p> 
+</div>
+{% if request.user.is_authenticated %}
     <div class="admin_report">
         <div class="report">
             <div class="day1">
-                <p>day1 : </p><div style="max-width: 55%;" ></div>
+                <p>day1 : </p><div style="max-width:{{s.0}}%;" ></div>
             </div>
-    
             <div class="day2">
-                <p>day2 :</p> <div style="max-width: 60%;"></div>
+                <p>day2 :</p> <div style="max-width:{{s.1}}%;"></div>
             </div>
-    
             <div class="day3">
-                <p>day3 :</p> <div style="max-width: 70%;"></div>
+                <p>day3 :</p> <div style="max-width:{{s.2}}%;"></div>
             </div>
-    
             <div class="day4">
-                <p>day4 :</p> <div style="max-width: 20%;" ></div>
+                <p>day4 :</p> <div style="max-width: {{s.3}}%" ></div>
             </div>
-    
             <div class="day5">
-                <p>day5 :</p> <div style="max-width: 10%;"></div>
+                <p>day5 :</p> <div style="max-width:{{s.4}}%;"></div>
             </div>
-    
             <div class="day6">
-               <p> day6 :</p> <div style="max-width: 80%;" ></div>
+               <p> day6 :</p> <div style="max-width: {{s.5}}%;" ></div>
             </div>
-    
             <div class="day7">
-                <p>day7 :</p> <div style="max-width: 100%;"></div>
+                <p>day7 :</p> <div style="max-width: {{s.5}}%;"></div>
             </div>
         </div>
     </div>
+    {% endif %}
    </div> 
-   {% for fillter in fillter %}
-   <br>
-   {{fillter}}
-   {% endfor %}
 {% endblock body %}
 
 {% block script %}
