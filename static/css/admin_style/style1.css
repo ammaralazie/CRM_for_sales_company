@@ -17,12 +17,16 @@ body{
     width: 3px;
 }
 
+.date_cover::-webkit-scrollbar:hover{
+    width: 10px;
+}
+
 .date_cover::-webkit-scrollbar-track{
     border-radius: 4px;
     
 }
 .date_cover::-webkit-scrollbar-thumb{
-    background-color: rgb(39, 37, 37);
+    background-color: rgb(151, 2, 2);
 }
 .admin_container{
     margin: auto;
