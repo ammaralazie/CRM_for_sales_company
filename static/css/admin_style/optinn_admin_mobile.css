@@ -43,7 +43,7 @@
     .search_by>form>div>label .optionmark {
         width: 14px;
         height: 14px;
-        margin-right: 6px;
+        margin-right: 6source bin/actpx;
     }
     .search_by>form>div>label>input:checked ~ .optionmark{
         border: 4px solid rgb(172, 172, 172);
