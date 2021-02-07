@@ -117,7 +117,16 @@
                 {% else %}
                 &ThinSpace;All
                 {% endif %} 
-            {% endif %}
+                {% endif %}
+
+                {% if time == 'date' %}
+                {% if coverttodate %}
+                &ThinSpace;
+                {{coverttodate|date:'Y/ n/ j'}}
+                {% else %}
+                &ThinSpace;All
+                {% endif %} 
+                {% endif %}
         {% endif %}
                 <i class="fas fa-sort-amount-down"></i> </p>
             <div class="date_cover" id="date_cover">
@@ -172,9 +181,9 @@
 
            <div class="admin_totalOrder">
                {% if counttotalorders >= 0 %}
-               total orders : {{counttotalorders}}
+               <a href="{% url 'admin_without_filter' st en al %}" style="text-decoration: none;color: #fff;">total orders : {{counttotalorders}}</a>
                {% else %}
-               total orders : {{everyorder}}
+               <a href="{% url 'admin_without_filter' st en al %}" style="text-decoration: none;color: #fff;">total orders : {{everyorder}}</a> 
                {% endif %}
            </div>
            
@@ -182,7 +191,7 @@
        {% if request.user.is_authenticated %}
     <div class="admin_state">
         
-        <a href=""  class="_complate">
+        <a href="{% url 'admin_without_filter' st en Can %}"  class="_complate">
         <div class="admin_complate">
             {% if countCanel >= 0 %}
             canceled:<p>{{countCanel}}</p> 
@@ -192,7 +201,7 @@
             </div>
         </a>
 
-        <a href="" class="_cancel">
+        <a href="{% url 'admin_without_filter' st en com %}" class="_cancel">
             <div class="admin_cancel">
                 {% if countComplate >= 0%}
                 complated:<p>{{countComplate}}</p> 
@@ -202,7 +211,7 @@
             </div>
         </a>
 
-        <a class="_postponement" href="">
+        <a class="_postponement" href="{% url 'admin_without_filter' st en Pos %}">
             <div class="admin_postponement" >
                 {% if countPostpon >= 0%}
                 postpon:<p>{{countPostpon}}</p> 

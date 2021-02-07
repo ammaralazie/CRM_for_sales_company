@@ -40,6 +40,17 @@ class Product(models.Model):
 
 #________________#
 
+class Sort(models.Manager):
+    def sort_by_date(self):
+        return OrderItem.objects.order_by('date_add')
+
+    def sort_by_name(self):
+        return OrderItem.objects.order_by('customer')
+
+    def sort_by_name(self):
+        return OrderItem.objects.order_by('address.covernorate')
+
+
 class OrderItem(models.Model):
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
     customer=models.ForeignKey(User,on_delete=models.CASCADE)
@@ -47,6 +58,7 @@ class OrderItem(models.Model):
     date_add=models.DateTimeField(default=datetime.datetime.now)
     address=models.ForeignKey('Address',on_delete=models.CASCADE,null=True,blank=True)
     complate=models.CharField(null=True,blank=True, max_length=20)
+    objects=Sort()
     def __str__(self):
         return str(self.customer)+ ' '+str(self.product)+' '+str(self.date_add)
 

@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/admin_style/theorder.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="order_container" id="order_container">
+        <div class="order_wepper">
+
+            <div class="order_card">
+                <div class="number">
+                    <p>
+                        ID
+                    </p>
+                </div>
+                <div class="order_name">
+                    <p>
+                        Nmae
+                    </p>
+                </div>
+                <div class="order_product">
+                    <p>
+                        Product
+                    </p>
+                </div>
+                <div class="order_address">
+                    <p>
+                        Addresss
+                    </p>
+                </div>
+                <div class="order_number">
+                    <p>
+                        Phone Number
+                    </p>
+                </div>
+                <div class="order_qunatity">
+                    <p>
+                        Quantity
+                    </p>
+                </div>
+                <div class="order_price">
+                    <p>
+                        Total price
+                    </p>
+                </div>
+                <div class="order_state">
+                    <p>
+                        State
+                    </p>
+                </div>
+
+                <div class="order_date">
+                    <p>
+                        Date
+                    </p>
+                </div>
+            </div>  
+            {% for obj in obj %}  
+            <div class="order_card">
+                <div class="number">
+                    <p>
+                        ID
+                    </p>
+                </div>
+                <div class="order_name">
+                    <p>
+                       {{obj.customer}}
+                    </p>
+                </div>
+                <div class="order_product">
+                    <p>
+                        {{obj.product.PRDName}}
+                    </p>
+                </div>
+                <div class="order_address">
+                    <p>
+                        {{obj.address.covernorate}}
+                        ,
+                        {{obj.address.state}}
+                    </p>
+                </div>
+                <div class="order_number">
+                    <p>
+                        {{obj.address.phone_number1}}
+                        <br>
+                        {{obj.address.phone_number2}}
+                    </p>
+                </div>
+                <div class="order_qunatity">
+                    <p>
+                        {{obj.quantity}}
+                    </p>
+                </div>
+                <div class="order_price">
+                    <p>
+                        {{obj.totleprice}}
+                    </p>
+                </div>
+                <div class="order_state">
+                    <p>
+                        {{obj.complate}}
+                    </p>
+                </div>
+
+                <div class="order_date">
+                    <p>
+                        {{obj.date_add|date:'Y /n /j'}}
+                    </p>
+                </div>
+            </div>  
+            {% endfor %}           
+        </div>
+    </div>
+    <div class="setting_order">
+        <div class="cover_setting">
+            <div class="setting" id="setting">
+                <i class="far fa-cog"></i>
+            </div>
+            <div class="tool_order" id="tool_order">
+                <div>
+                    <div class="print_order" id="print_order">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <div class="sote_by">
+                        Sort by :
+                        <a href="">name</a>
+                        <a href="">address</a>
+                        <a href="">date</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var number=document.getElementsByClassName('number')
+        for (var i=1 ;i<=number.length;i++){
+            number[i].children[0].textContent=i
+        }
+    </script>
+    <script src="{% static 'js/admin_page/theorder.js' %}" ></script>
+</body>
+</html>

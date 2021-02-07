@@ -1,4 +1,5 @@
-from django.shortcuts import render,redirect, get_object_or_404
+from django.shortcuts import render,redirect
+from django.http import HttpResponse
 from products.models import Product,OrderItem
 from datetime import timedelta
 import datetime
@@ -45,7 +46,7 @@ def management(requset):
     if requset.user.is_authenticated:
         if requset.user.username == 'Social':
             obj=OrderItem.objects.all()
-            return render(requset,'home_template/ordersmanagement.html' ,{'obj':obj})
+            return render(requset,'home_template/ordersmanagement.html' ,{'obj':obj})     
     else: return redirect('login')
 
 def detail(request ,id):
@@ -63,7 +64,21 @@ def admin_management(requset):
         time=requset.POST['time']
     _date=[]
     reportDate=date_list(time)
-    return render(requset,'home_template/admin_page.html',{'d':_date,'reportDate':reportDate ,'time':time}) 
+    context={
+        'd':_date,
+        'reportDate':reportDate ,
+        'time':time,
+
+        'st':'start',
+        'en':'end',
+
+        'com':'complate',
+        'Can':'Cancellation',
+        'Pos':'Postponement',
+        'al':'all'
+
+    }
+    return render(requset,'home_template/admin_page.html',context) 
 
 #__________admin filter date __________#     
 
@@ -74,11 +89,12 @@ def admin_filter(requset,time,d):
    # if dd:
    #     datee=datetime.datetime.strptime(dd,'%Y-%m-%d').date()
    # week=d-timedelta(days=7)
-    fillter=''
+    
     coverttodate=''
     enddate=''
     convertDate=''
     endDate=''
+    fillter=''
     if time == 'week':
         timusa=dateutil.parser.parse(d)
         coverttodate=timusa
@@ -106,7 +122,6 @@ def admin_filter(requset,time,d):
     countComplate=0
     countPostpon=0
     counttotalorders=0
-    print('filter :',fillter)
     for i in fillter:
         if i.address:
             if i.complate:
@@ -118,6 +133,7 @@ def admin_filter(requset,time,d):
             elif i.complate =='Postponement':
                 countPostpon+=1
     reportDate=date_list(time)
+
     context={
         'reportDate':reportDate,
         'countCanel':countCanel,
@@ -126,6 +142,46 @@ def admin_filter(requset,time,d):
         'counttotalorders':counttotalorders,
         'coverttodate':timusa+timedelta(hours=3),
         'time':time,
-        'fillter':fillter,
+
+        #this use as argument for admin_without_filter
+        'st':convertDate,
+        'en':endDate,
+
+        'com':'complate',
+        'Can':'Cancellation',
+        'Pos':'Postponement',
+        'al':'all'
+
     }
     return render(requset,'home_template/admin_page.html',context) 
+
+def admin_without_filter(request,st,en,com):
+    listitem=[]
+    if st == 'start' and en == 'end':
+        fillterr=OrderItem.objects.all()
+    else:
+        fillterr=OrderItem.objects.filter(date_add__range=[st,en])
+    if com == 'Cancellation':
+        for i in fillterr:
+            if i.complate == 'Cancellation':
+                listitem.append(i)
+
+    if com == 'complate':
+        for i in fillterr:
+            if i.complate == 'complate':
+                listitem.append(i)
+    if com == 'all':
+         for i in fillterr:
+            listitem.append(i)
+
+    if com == 'Postponement':
+        for i in fillterr:
+            if i.complate == 'Postponement':
+                listitem.append(i)
+    context={
+        'obj':listitem
+    }
+    
+    return render(request,'admin_pages_without_main/theorders.html',context)
+
+
