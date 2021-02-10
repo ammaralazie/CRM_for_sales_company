@@ -14,24 +14,30 @@ products
     <div class="section">
         <div class="cover_section" style="display: flex;">
             <div class="form_search">
-                <form action="" method="get">
-                    <input type="search" name="" id="">
+                <form action="{% url 'product:main_filer' %}" method="GET">
+                    {% csrf_token %}
+                    <input type="search" name="search" id="">
                     <div class="custom-select" style="width:200px;">
-                        <select>
-                          <option value="0">Product Type:</option>
-                          <option value="1">Carpets and meridians</option>
-                          <option value="2">the games</option>
-                          <option value="3">Electrical</option>
-                          <option value="4">Mobile phones</option>
+                        <select name="s" >
+                          <option  value="0">Product Type:</option>
+                          <option  value="Carpets and meridians">Carpets and meridians</option>
+                          <option  value="the games">the games</option>
+                          <option  value="Electrical">Electrical</option>
+                          <option  value="Mobile phones">Mobile phones</option>
                         </select>
                       </div>
                     <button type="submit"><i class="far fa-search"></i></button>
                 </form>
+                
             </div>
+            
         </div>
-        
+       
     </div>
-    <!--end hero-->
+{% if message %}
+<p style="color: #fff;width: 100%;height: 40px;display: flex;align-items: center;justify-content: center;background-color: #1a1a1a;font-size: 20px;" >{{message}}</p>
+{% endif %}
+<!--end hero-->
     <!--card-->
     <div class="container_cord">
     <div class="wepper">
@@ -99,9 +105,15 @@ products
         </ul>
       </nav>
 {% endif %}
+
+
 {% endblock body %}
 
 {% block script %}
+<script>
+    x='{{X}}'
+    console.log('x :',x)
+</script>
 <script src="{% static 'js/home_serach_select.js' %}" ></script>
 <script src={% static 'js/cardAdd.js' %}></script>
 

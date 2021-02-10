@@ -4,6 +4,8 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from .models import *
 import json
+from django.db.models import Q
+from django.core.paginator import Paginator
 
 def recivedata(requset):
     if requset.user.is_authenticated:
@@ -152,5 +154,60 @@ def search_date(requset):
         return redirect('login')
         
         
+#______main filter__________#
 
+def main_filer(requset):
+    fillter=[]
+    message=''
+    ss=''
+    if requset.method == 'GET':
+        Z=requset.GET.get('search')
+        type=requset.GET.get('s')
+        if Z and type == 'Electrical':
+            fillter=Product.objects.filter(PRDName=Z)
+            if not fillter:
+                fillter=Product.objects.filter(PRDName=Z.lower())
+                ss=Z.lower()
+        elif Z and type == 'Carpets and meridians':
+            fillter=Product.objects.filter(PRDName=Z)
+            if not fillter:
+                fillter=Product.objects.filter(PRDName=Z.lower())
+                ss=Z.lower()
+        elif Z and type == 'the games':
+            fillter=Product.objects.filter(PRDName=Z)
+            if not fillter:
+                fillter=Product.objects.filter(PRDName=Z.lower())
+                ss=Z.lower()
+        elif Z and type == 'Mobile phones':
+            fillter=Product.objects.filter(PRDName=Z)
+            if not fillter:
+                fillter=Product.objects.filter(PRDName=Z.lower())
+                ss=Z.lower()
+        else:
+            fillter=Product.objects.filter(PRDType=type)
+        if not fillter:
+            message='There is no result'
+       # paginator=Paginator(fillter,3)
+        #page_num=requset.GET.get('page')
+       # fillter=paginator.get_page(page_num)
+
+        context={
+            'obj':fillter,
+            'message':message,
+            'X':ss
+        }
+        return render(requset,'home/index.html',context)
+
+#____sort by type_____#
+
+def sort_by_type(requset,type):
+    message=''
+    fillter=Product.objects.filter(PRDType=type)
+    if not fillter:
+        message="There is no result"
+    context={
+        'obj':fillter,
+        'message':message
+    }
+    return render(requset,'home/index.html',context)
 

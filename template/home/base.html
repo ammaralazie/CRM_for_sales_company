@@ -119,21 +119,21 @@
                     <li >
                         <a href="">Add Order <i class="fas fa-plus"></i></a>
                     </li>
-                    <li id="Products_Type">
-                        <div>Products Type <i class="fas fa-sort-down"></i></div>
+                    <li>
+                        <div  id="Products_Type">Products Type <i class="fas fa-sort-down"></i></div>
                         <div class="product_type_list" id="product_type_list">
                             <ul class="type_list">
                                 <li class="Carpets_meridians" >
-                                    <a href="">Carpets & meridians</a> 
+                                    <a href="{% url 'product:sort_by_type' "Carpets and meridians" %}">Carpets & meridians</a> 
                                 </li>
                                 <li>
-                                    <a href="">the games</a> 
+                                    <a href="{% url 'product:sort_by_type' "the games" %}">the games</a> 
                                 </li>
                                 <li>
-                                    <a href="">Electrical</a> 
+                                    <a href="{% url 'product:sort_by_type' "Electrical" %}">Electrical</a> 
                                 </li>
                                 <li>
-                                    <a href="">Mobile phones</a> 
+                                    <a href="{% url 'product:sort_by_type' "Mobile phones" %}">Mobile phones</a> 
                                 </li>
                             </ul>
                         </div>
