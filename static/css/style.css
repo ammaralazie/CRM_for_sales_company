@@ -54,6 +54,7 @@ body::-ms-scrollbar-thumb{
     transition: all 3s ease;
     position: fixed;
     box-shadow: 0 2px 9px #000;
+    z-index: 100;
     
 }
 

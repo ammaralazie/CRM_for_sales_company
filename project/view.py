@@ -8,9 +8,12 @@ from .forms import SignUpForm
 from django.db.models import Q
 import dateutil.parser
 from .utils import date_list
-
+from django.core.paginator import Paginator
 def home(request):
     obj=Product.objects.all()
+    paginator=Paginator(obj,6)
+    page_num=request.GET.get('page')
+    obj=paginator.get_page(page_num)
     context={'obj':obj}
     d=datetime.datetime.now()-timedelta(days=7)
     while d<= datetime.datetime.now():

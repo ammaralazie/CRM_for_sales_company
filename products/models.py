@@ -40,17 +40,6 @@ class Product(models.Model):
 
 #________________#
 
-class Sort(models.Manager):
-    def sort_by_date(self):
-        return OrderItem.objects.order_by('date_add')
-
-    def sort_by_name(self):
-        return OrderItem.objects.order_by('customer')
-
-    def sort_by_name(self):
-        return OrderItem.objects.order_by('address.covernorate')
-
-
 class OrderItem(models.Model):
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
     customer=models.ForeignKey(User,on_delete=models.CASCADE)
@@ -58,7 +47,12 @@ class OrderItem(models.Model):
     date_add=models.DateTimeField(default=datetime.datetime.now)
     address=models.ForeignKey('Address',on_delete=models.CASCADE,null=True,blank=True)
     complate=models.CharField(null=True,blank=True, max_length=20)
-    objects=Sort()
+    employee=models.CharField(max_length=200)
+    delivery_price=models.DecimalField(blank=True,null=True ,default=0 , max_digits=5, decimal_places=2,verbose_name="The Discount")
+    TYPEORDER=(('facebook','facebook'),('instagram','instagram'),('whatsapp','whatsapp'),('directly','directly'))
+    order_type=models.CharField(choices=TYPEORDER,max_length=9)
+    notes=models.TextField()
+
     def __str__(self):
         return str(self.customer)+ ' '+str(self.product)+' '+str(self.date_add)
 
@@ -78,11 +72,6 @@ class OrderItem(models.Model):
 
 class Address(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-
- #   COVERNORATE=(
- #       ('الأنبار','الأنبار'),('ديالى','ديالى'),('أربيل','أربيل'),('بابل','بابل'),('بغداد','بغداد'),('البصرة','البصرة'),('حلبجة','حلبجة'),('دهوك','دهوك'),('القادسية','القادسية'),('ذي قار','ذي قار'),('السليمانية','	السليمانية'),('صلاح الدين','صلاح الدين'),('كركوك','كركوك'),('كربلاء','كربلاء'),('المثنى','المثنى'),('ميسان','ميسان'),('النجف','النجف'),('نينوى','نينوى'),('واسط','واسط')
-  #  )
-
     covernorate=models.CharField(default='بغداد',max_length=30)
     state=models.CharField(max_length=100)
     phone_number1=models.CharField(max_length=11)
@@ -92,3 +81,5 @@ class Address(models.Model):
 
     def __str__(self):
         return str(self.covernorate)+'  ' +str(self.state)+'  '+str(self.date_add)
+
+    

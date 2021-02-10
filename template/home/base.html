@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
     <link rel="stylesheet" href="{% static 'css/SWL.css' %}">
-
-    
     {% block head %}
     {% endblock head %}
     <title>
@@ -89,34 +87,56 @@
                     <li>
                         {% if request.path != '/Order_Manage/' %}
                         <div class="serch">
-                            search&ThickSpace;<i class="fas fa-sort-down"></i>
+                            <!--
+                                search&ThickSpace;<i class="fas fa-sort-down"></i>
+                            -->
 
                         </div>
                         {% else %}
                         <div class="serch" style="cursor: not-allowed;">
-                            search&ThickSpace;<i class="fas fa-sort-down"></i>
+                            <!--
+                                search&ThickSpace;<i class="fas fa-sort-down"></i>
+                            -->
 
                         </div>
                         {% endif %}
                    
                         {% if request.path != '/Order_Manage/' %}
-                        <div class="serch__nav s ">
+                        <!--
+                            <div class="serch__nav s ">
                             <form action="" method="post" class="form_nav" >
                                 <input type="search" name="search" placeholder="search on products">
                                 <buttont class="button_nav"><i class="fas fa-search"></i></buttont>
                             </form>
                         </div>
+                        -->
                          {% endif %}
                     </li>
                    
                     <li>
                         <a href="">fdjhgfj</a>
                     </li>
-                    <li>
-                        <a href="">esghsdfgdfk</a>
+                    <li >
+                        <a href="">Add Order <i class="fas fa-plus"></i></a>
                     </li>
-                    <li>
-                        <a href="">sakfsdafg</a>
+                    <li id="Products_Type">
+                        <div>Products Type <i class="fas fa-sort-down"></i></div>
+                        <div class="product_type_list" id="product_type_list">
+                            <ul class="type_list">
+                                <li class="Carpets_meridians" >
+                                    <a href="">Carpets & meridians</a> 
+                                </li>
+                                <li>
+                                    <a href="">the games</a> 
+                                </li>
+                                <li>
+                                    <a href="">Electrical</a> 
+                                </li>
+                                <li>
+                                    <a href="">Mobile phones</a> 
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         {% if not request.user.is_authenticated  %}
@@ -145,6 +165,7 @@
     <script>user="{{user}}"</script>
     <script src="{% static 'js/homejs.js' %}" ></script>
     <script src="{% static 'js/mobile.js' %}" ></script>
+    <script src="{% static 'js/type_product.js' %}"></script>
    <script>
 function getToken(name) {
     let cookieValue = null;
@@ -163,7 +184,8 @@ function getToken(name) {
 }
 //انضيف هذا المتغير الى ملف الجافا سكربت حتى نححق مطالب سي اس ا اس ار اف تكوين
 const csrftoken = getToken('csrftoken');
-</script>  
+</script> 
+
 {% block script %}
 {% endblock script %}
 </body>
