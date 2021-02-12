@@ -211,6 +211,59 @@ def sort_by_type(requset,type):
     }
     return render(requset,'home/index.html',context)
 
+#_________create_order______#
 
 def create_order(requset):
-    return render(requset,'home/create_order.html')
+    x=''
+    all_product=Product.objects.all()
+    if requset.method == 'POST':
+        product_name=requset.POST.get('s')
+        covernorate=requset.POST.get('covernorate')
+        state=requset.POST.get('city')
+        phone1=requset.POST.get('phoonNumber1')
+        phone2=requset.POST.get('phoneNumber2')
+        if not phone2:
+            phone2=''
+        qunatitiy=float(requset.POST.get('quantity'))
+        delivery_price=float(requset.POST.get('deliveryPrice'))
+        customer=requset.user.username
+        employee=requset.POST.get('shippingEmployee')
+        product_name=Product.objects.get(PRDSlug=product_name)
+        order,create=OrderItem.objects.get_or_create(product=product_name,customer=requset.user,employee=employee,quantity=qunatitiy,delivery_price=delivery_price,)
+        address=Address.objects.create(user=requset.user,covernorate=covernorate,state=state,phone_number1=phone1,phone_number2=phone2)
+        order.address=address
+        order.save()
+        return redirect('home')
+    context={
+        'all_product':all_product,
+    }
+    return render(requset,'home/create_order.html',context)
+
+    #___create order from product___#
+
+def create_order_from_product(requset,slug):
+    all_product=Product.objects.all()
+    product=Product.objects.get(PRDSlug=slug)
+    if requset.method == 'POST':
+        product_name=slug
+        covernorate=requset.POST.get('covernorate')
+        state=requset.POST.get('city')
+        phone1=requset.POST.get('phoonNumber1')
+        phone2=requset.POST.get('phoneNumber2')
+        if not phone2:
+            phone2=''
+        qunatitiy=float(requset.POST.get('quantity'))
+        delivery_price=float(requset.POST.get('deliveryPrice'))
+        customer=requset.user.username
+        employee=requset.POST.get('shippingEmployee')
+        product_name=Product.objects.get(PRDSlug=product_name)
+        order,create=OrderItem.objects.get_or_create(product=product_name,customer=requset.user,employee=employee,quantity=qunatitiy,delivery_price=delivery_price,)
+        address=Address.objects.create(user=requset.user,covernorate=covernorate,state=state,phone_number1=phone1,phone_number2=phone2)
+        order.address=address
+        order.save()
+        return redirect('home')
+    context={
+        'obj':product,
+        'all_product':all_product
+    }
+    return render(requset,'home/create_order.html',context)

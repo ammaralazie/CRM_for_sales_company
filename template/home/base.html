@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
     <link rel="stylesheet" href="{% static 'css/SWL.css' %}">
-    <link rel="stylesheet" href="{% static 'css/slaid_card.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search_home_page.css' %}">
+    
     {% block head %}
     {% endblock head %}
     <title>
@@ -75,7 +76,7 @@
                 <ul class="nav_list">
                     <li>
                         {% if user.is_authenticated %}
-                       <a href="{% url 'product:allorders' %}"> <div class="cart_nav">
+                       <a href=""> <div class="cart_nav">
                         <p>{{all}}</p><i class="fas fa-shopping-cart"></i>
                        </div></a>
                        {% else %}
@@ -167,6 +168,7 @@
     <script src="{% static 'js/homejs.js' %}" ></script>
     <script src="{% static 'js/mobile.js' %}" ></script>
     <script src="{% static 'js/type_product.js' %}"></script>
+    <script src="{% static 'js/home_serach_select.js' %}" ></script>
    <script>
 function getToken(name) {
     let cookieValue = null;

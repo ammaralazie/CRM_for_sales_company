@@ -3,7 +3,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/search_home_page.css' %}">
-
+<link rel="stylesheet" href="{% static 'css/slaid_card.css' %}">
 {% endblock head %}
 
 {% block title %}
@@ -74,8 +74,8 @@ products
                     </div>
                     <div class="add_card">
                         {% if user.is_authenticated %}
-                        <button class="add_button" data-slug="{{obj.PRDSlug}}" data-action="add">
-                        Add to Card
+                        <a  class="add_buttona"  href="{% url 'product:create_order_from_product' obj.PRDSlug %}">Add Order</a>
+                        
                         </button>
                         {% else %}
                         <a  class="add_buttona"  href="{% url 'login' %}">Add to Card</a>
@@ -114,7 +114,6 @@ products
     x='{{X}}'
     console.log('x :',x)
 </script>
-<script src="{% static 'js/home_serach_select.js' %}" ></script>
 <script src={% static 'js/cardAdd.js' %}></script>
 
 {% endblock script %}

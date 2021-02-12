@@ -11,6 +11,7 @@
 <div class="cover_create_order">
     <div class="wepper_create_order">
         <form action="" method='POST' >
+            {% csrf_token %}
         <div class="info_product_create_order">
             <div class="type_create_order">
                 <h4>
@@ -18,10 +19,23 @@
                 </h4>
             </div>
             <div class="field_product">
-                <input type="text" name='name' placeholder="Product name" >
-                <input type="text" name="description" placeholder="Description">
-                <input type="number" name="price" placeholder="the Price" >
-                <img src="" name='product_image' alt=""> 
+               {% if obj.PRDName %}
+               <label for=""> {{obj.PRDName}} </label>
+               <label for=""> {{obj.PRDDiscription|truncatechars:50}} </label>
+               <label for=""> {{obj.PRDPrice}} $</label>
+               <img src="{{obj.PRDIamge.url}}" name='product_image' alt=""> 
+               {% else %}
+                <div class="custom-select" style="width:80%;">
+                    <select name="s" >
+                      <option  value="0">Product Name:</option>
+                      {% for all_product in all_product %}
+                      <option value="{{all_product.PRDSlug}}">{{all_product.PRDName}}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+                
+
+                {% endif %}
             </div>
         </div>
         <div class="info_address_creat_order">
@@ -30,8 +44,33 @@
                     Address
                 </h4>
             </div>
-            <div class="field_address">
-                <input type="text" name='covernorate' placeholder="covernorate">
+            <div class="field_address" style="position: relative;">
+                <input  style="height: 2px;" type="text" name='' placeholder="covernorate">
+                <div class="custom-select" style="width:80%;">
+                    <select name="covernorate" >
+                      <option  value="0">Covernorate:</option>
+                      <option value="Erbil">Erbil</option>
+                      <option value="Anbar">Anbar</option>
+                      <option value="Babylon">Babylon</option>
+                      <option value="Baghdad">Baghdad</option>
+                      <option value="Basra">Basra</option>
+                      <option value="Dohuk">Dohuk</option>
+                      <option value="Qadisiyah">Qadisiyah</option>
+                      <option value="Diyala">Diyala</option>
+                      <option value="Dhi Qar">Dhi Qar</option>
+                      <option value="Sulaimaniyah">Sulaimaniyah</option>
+                      <option value="Salah al-Din">Salah al-Din</option>
+                      <option value="Kirkuk">Kirkuk</option>
+                      <option value="Karbala">Karbala</option>
+                      <option value="Muthanna">Muthanna</option>
+                      <option value="Maysan">Maysan</option>
+                      <option value="Najaf">Najaf</option>
+                      <option value="Nineveh">Nineveh</option>
+                      <option value="Wasit">Wasit</option>
+
+                      
+                    </select>
+                </div>
                 <input type="text" name='city' placeholder="city">
                 <input type="number" name='phoonNumber1'placeholder="phone 1">
                 <input type="number" name="phoneNumber2" placeholder="phone 2">
@@ -40,16 +79,18 @@
         <div class="info_create_order">
            <div class="qunatity_order">
                <label for="">Qunatity</label>
-               <input type="text" name="" id="">
+               <input type="number" name="quantity" id="">
            </div>
            <div class="delivery_price_order">
                <label for="">Delivery price</label>
-               <input type="text" name="deliveryPrice" id="">
+               <input type="number" name="deliveryPrice" id="">
            </div>
-           <div class="total_price">
+           <!--
+                          <div class="total_price">
                <label for="">Total price</label>
                <input type="text" name="totalPrice" id="">
            </div>
+           -->
         </div>
         <div class="customer_emploee">
             <div class="customer">
@@ -66,3 +107,11 @@
     </div>
 </div>
 {% endblock body %}
+
+{% block script %}
+<script>
+    x="{{x}}"
+    console.log('x :',x)
+</script>
+
+{% endblock script %}

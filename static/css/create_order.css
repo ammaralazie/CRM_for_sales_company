@@ -32,11 +32,15 @@ form[method=POST]{
     align-items: center;
     justify-content: center;
     grid-template-columns: 1fr;
+    
+}
+.field_product{
+    position: relative;
 }
 .info_product_create_order,.info_address_creat_order,.info_create_order,.customer_emploee{
     margin-top: 10px;
     width: 100%;
-    height: 240px;
+    height: 290px;
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
@@ -66,7 +70,7 @@ form[method=POST]{
     padding-top: 20px;
 }
 
-.field_product input,.field_address input{
+.field_product label,.field_address input{
     width: 80%;
     height: 35px;
     margin: auto;
@@ -76,15 +80,27 @@ form[method=POST]{
     border-radius: 4px;
     font-size: 20px;
     padding: 10px;
+    box-shadow:2px 2px 2px #000,2px 2px 2px inset rgb(255,255,255,0.1) ;
+}
+.field_product label{
+    color: rgb(158, 228, 149);
 }
 .field_address{
     grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 img[name=product_image]{
-    width: 30%;
-    height: 100%;
+    width: 24%;
+    height: 34%;
     padding: 10px;
     margin: auto;
+    margin-bottom: 5px;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 63%;
+    left: 38%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #000,2px 2px 2px inset rgba(255, 255, 255, 0.1);
 }
 
 .field_address input[type=number]::-webkit-outer-spin-button,
@@ -101,7 +117,7 @@ img[name=product_image]{
     width: 100%;
     background-color: #1a1a1a;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -124,7 +140,7 @@ img[name=product_image]{
 }
 
 .qunatity_order input,.delivery_price_order input,.total_price input{
-
+    padding: 10px;
     width: 80%;
     height: 40px;
     font-size: 20px;
@@ -132,6 +148,7 @@ img[name=product_image]{
     background-color:#2d3838 ;
     border-radius: 4px;
     color: #fff;
+    box-shadow:2px 2px 2px #000,2px 2px 2px inset rgb(255,255,255,0.1) ;
 
 }
 
@@ -172,6 +189,7 @@ img[name=product_image]{
     background-color:#2d3838 ;
     border-radius: 4px;
     color: #fff;
+    box-shadow:2px 2px 2px #000,2px 2px 2px inset rgb(255,255,255,0.1) ;
 }
 
 .Save_order{
@@ -211,3 +229,11 @@ img[name=product_image]{
         margin-top: 20px;
     }
 }/*media 400px */
+
+.custom-select{
+    top: 10%;
+    right: 10%;  
+}
+.select-selected{
+    background-color: #2d3838;
+}
