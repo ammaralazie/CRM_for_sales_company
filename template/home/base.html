@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
     <link rel="stylesheet" href="{% static 'css/SWL.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slaid_card.css' %}">
     {% block head %}
     {% endblock head %}
     <title>
@@ -117,7 +118,7 @@
                         <a href="">fdjhgfj</a>
                     </li>
                     <li >
-                        <a href="">Add Order <i class="fas fa-plus"></i></a>
+                        <a href="{% url 'product:create_order' %}">Add Order <i class="fas fa-plus"></i></a>
                     </li>
                     <li>
                         <div  id="Products_Type">Products Type <i class="fas fa-sort-down"></i></div>

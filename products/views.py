@@ -211,3 +211,6 @@ def sort_by_type(requset,type):
     }
     return render(requset,'home/index.html',context)
 
+
+def create_order(requset):
+    return render(requset,'home/create_order.html')

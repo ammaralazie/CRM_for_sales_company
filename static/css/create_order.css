@@ -1,0 +1,213 @@
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+body{
+    background-color: #1a1a1a;
+    color: white;
+}
+.navbar{
+    position: static;
+}
+.cover_create_order{
+width: 95%;
+height: 100%;
+margin: auto;
+padding: 10px;
+margin-top: 60px;
+}
+
+.wepper_create_order{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form[method=POST]{
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+}
+.info_product_create_order,.info_address_creat_order,.info_create_order,.customer_emploee{
+    margin-top: 10px;
+    width: 100%;
+    height: 240px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    justify-content: center;
+    box-shadow:2px 2px 2px #000,2px 2px 2px rgb(255, 252, 252,0.1) inset;
+    border-radius: 6px;
+}
+
+.type_create_order{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #7a8e8e;
+    border-right: 1px solid #000;
+    border-radius: 6px;
+}
+.field_product,.field_address{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.field_product input,.field_address input{
+    width: 80%;
+    height: 35px;
+    margin: auto;
+    text-align: center;
+    background-color:#2d3838;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 10px;
+}
+.field_address{
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+img[name=product_image]{
+    width: 30%;
+    height: 100%;
+    padding: 10px;
+    margin: auto;
+}
+
+.field_address input[type=number]::-webkit-outer-spin-button,
+.field_address input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.field_address input[type=number]{
+    -moz-appearance: textfield;
+}
+
+.info_create_order{
+    width: 100%;
+    background-color: #1a1a1a;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.qunatity_order,.delivery_price_order,.total_price{
+    width: 85%;
+    height: 85%;display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #000;
+    margin: auto;
+}
+.qunatity_order label,.delivery_price_order label,.total_price label{
+
+    font-size: 20px;
+    color: #7a8e8e;
+    margin: 10px;
+}
+
+.qunatity_order input,.delivery_price_order input,.total_price input{
+
+    width: 80%;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    background-color:#2d3838 ;
+    border-radius: 4px;
+    color: #fff;
+
+}
+
+.customer_emploee{
+    width: 100%;
+    background-color: #1a1a1a;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; 
+}
+.customer,.shipping_employee{
+
+    width: 85%;
+    height: 85%;display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #000;
+    margin: auto;
+
+}
+.customer label,.shipping_employee label{
+
+    font-size: 20px;
+    color: #7a8e8e;
+    margin: 10px;
+
+}
+
+.customer input,.shipping_employee input{
+    width: 80%;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    background-color:#2d3838 ;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.Save_order{
+    width:25%;
+    height: 50px;
+    margin: 15px;
+    background-color: rgb(175, 9, 9);
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px inset rgb(255, 252, 252,0.1);
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (max-width:600px){
+
+    .info_product_create_order,.info_address_creat_order,.info_create_order,.customer_emploee{
+        grid-template-columns: 1fr;
+        height: 350px;
+    }
+    .field_product input,.field_address input{
+        font-size: 15px;
+    }
+    .qunatity_order input,.delivery_price_order input,.total_price input{
+        height: 25px;
+        width: 90%;
+        font-size: 15px;
+    }
+    .customer input,.shipping_employee input{
+        height: 25px;
+        width: 90%;
+        font-size: 15px;
+    }
+    .Save_order{
+        width: 70%;
+        margin: auto;
+        margin-top: 20px;
+    }
+}/*media 400px */

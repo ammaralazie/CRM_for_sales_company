@@ -14,5 +14,6 @@ urlpatterns = [
     path('date/',search_date,name='search_date'),  
     path('main_filer/',main_filer,name='main_filer'), 
     path('sort_by_type/<type>',sort_by_type,name='sort_by_type'), 
+    path('create_order/',create_order,name='create_order'), 
 
 ]

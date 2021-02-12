@@ -1,0 +1,68 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}
+    create order
+{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/create_order.css' %}">
+{% endblock head %}
+{% block body %}
+<div class="cover_create_order">
+    <div class="wepper_create_order">
+        <form action="" method='POST' >
+        <div class="info_product_create_order">
+            <div class="type_create_order">
+                <h4>
+                    Product information
+                </h4>
+            </div>
+            <div class="field_product">
+                <input type="text" name='name' placeholder="Product name" >
+                <input type="text" name="description" placeholder="Description">
+                <input type="number" name="price" placeholder="the Price" >
+                <img src="" name='product_image' alt=""> 
+            </div>
+        </div>
+        <div class="info_address_creat_order">
+            <div class="type_create_order" >
+                <h4>
+                    Address
+                </h4>
+            </div>
+            <div class="field_address">
+                <input type="text" name='covernorate' placeholder="covernorate">
+                <input type="text" name='city' placeholder="city">
+                <input type="number" name='phoonNumber1'placeholder="phone 1">
+                <input type="number" name="phoneNumber2" placeholder="phone 2">
+            </div>
+        </div>
+        <div class="info_create_order">
+           <div class="qunatity_order">
+               <label for="">Qunatity</label>
+               <input type="text" name="" id="">
+           </div>
+           <div class="delivery_price_order">
+               <label for="">Delivery price</label>
+               <input type="text" name="deliveryPrice" id="">
+           </div>
+           <div class="total_price">
+               <label for="">Total price</label>
+               <input type="text" name="totalPrice" id="">
+           </div>
+        </div>
+        <div class="customer_emploee">
+            <div class="customer">
+                <label for="">Client Name</label>
+                <input type="text" name="clientName" id="">
+            </div>
+            <div class="shipping_employee">
+                <label for="">Shipping Employee</label>
+                <input type="text" name="shippingEmployee" id="">
+            </div>
+        </div>
+        <button type="submit" class="Save_order" >Save the order</button>
+    </form>
+    </div>
+</div>
+{% endblock body %}
