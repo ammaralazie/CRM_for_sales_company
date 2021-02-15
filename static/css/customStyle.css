@@ -307,6 +307,8 @@ padding: 10px;
     width: 90%;
     height: 100%;
     margin: 20px;
+    perspective: 500px;
+    transform-origin: center;
 }
 
  .card{
@@ -318,20 +320,34 @@ padding: 10px;
     outline: none;
     border-radius: 6px;
     box-shadow: 2px 2px 2px #5e4a4a,2px 2px 2px inset #000;
+    transition: all 1s ease;
 }
     
+.card:hover .image{
+    filter: opacity(1);
     
-
+}    
+.card:hover{
+    transform: translateZ(20px);
+}
 .image{
-    width: 100%;
-    height: 60%;
+    width: 95%;
+    height: 55%;
+    margin: auto;
+        margin-top: auto;
+    display: flex;
+    justify-content: center;
+    filter: opacity(0.5);
+    margin-top: 13px;
+    transition: all 1s ease;
 }
 
 .image img{
    
-    width: 100%;
+    width: 98%;
     height: 100%;
-    border-radius:10px;
+    border-radius: 10px;
+    margin: auto;
     
 
 }
@@ -347,16 +363,7 @@ padding: 10px;
 
 .name a{
 text-decoration: none;
-color: #000;
-background: #3C3B3F;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
--webkit-background-clip: text;
--moz-background-clip: text;
--ms-background-clip: text;
--webkit-text-fill-color: transparent;
--moz-text-fill-color: transparent;
--ms-text-fill-color: transparent;
+color: rgba(217, 215, 215, 0.7);
 
 }
 
@@ -370,8 +377,8 @@ background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, F
     font-size: 17px;
     color: #000;
     background: #3C3B3F;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to left, #fff1f1, #62FF2A5E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #fff1f1, #62FF2A5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -ms-background-clip: text;

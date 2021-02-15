@@ -23,6 +23,7 @@ bod.children[0].onscroll=function(){
 }
 
 if(user == 'AnonymousUser' ){
+    
     var mainc=document.getElementsByClassName('container_login')
     mainc[0].classList.toggle('container_show')
     var cover_login=document.getElementsByClassName('container_login')
@@ -34,12 +35,10 @@ if(user == 'AnonymousUser' ){
     login[0].classList.toggle('show_login')
     
     close[0].addEventListener('click',function(){
-       
-        console.log( main[0].classList[1])
         mainc[0].classList.remove('container_show')
         cover_login[0].classList.remove('cover_show')
         login[0].classList.remove('show_login')
-        close[0].classList.remove('close_show')
+        this.classList.remove('close_show')
     }//end dunction
     )//end event listener
 }//end if condation
