@@ -1,0 +1,60 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/detail_product/detail.css' %}">
+{% endblock head %}
+{% block title %}
+detail the product
+{% endblock title %}
+
+{% block body %}
+    <div class="detail_container">
+        <div class="detail_informations">
+            <div class="detail_address">
+                <h3>Name of product</h3>
+            </div>
+            <div class="detail_description" id="detail_description">
+                <label for="">Descriptions:</label>
+                <div class="discription2">
+                   sdkg dsjg dsg sdjg sdh dsjg dsh dsjg dsjh sdjh sh sdjh dfkjh skdjgsdkh s hsjh kdsfjbh k bsjh bdfkjb dhjb dfjhb dfghjfdhdfhb br hbrj  brj hbjrj bjhjr bhj hb dsjg dsjhdsj gfdj dfbj fdkjb fjb fdkjb fkbbh kdfj bfjnb rkdjb rejbb erkmb rjb b ejrb kjreb rekjb rejb reb erbkj re dlkbmfb dblk frhbrf rkhb rfkhb skbmmfkb skgbfdbkp ldflbk fb kbrhb rkbrbb 
+                </div>
+            </div>
+            <div class="detail_price">
+                <div class="price"  style="text-decoration: line-through;color: brown;">1234$</div>
+                <div class="discount">1233$</div>
+            </div>
+            <div class="detail_qunatity">
+                <label for=""><p>qunatity :</p>
+                    <div class="qunatity">
+                        <label for="" id="id_qunatity">34  
+                        </label>
+                        <div class="detail_twoButton">
+                            <button id="plus"><i class="fas fa-arrow-alt-square-up"></i></button>
+                        <button id="munes"><i class="fas fa-arrow-alt-square-down"></i></button>
+                        </div>
+                    </div>
+                </label>
+                
+            </div>
+            <button class="detail_addOrder">
+                Add Order
+            </button>
+        </div>
+        <div class="detail_images">
+            <div class="detail_image">
+                <img src="https://via.placeholder.com/150" alt="">
+                <div class="dsicountt"><p>discount</p></div>
+            </div> 
+            <div class="advertising">
+                <video src="{% static 'img/x.mp4' %}" autoplay muted loop> 
+                </video>
+            </div>  
+        </div>
+
+    </div>
+{% endblock body %}
+
+{% block script %}
+    <script src="{% static 'js/detail_product/detail_product.js' %}"></script>
+    {% endblock script %}

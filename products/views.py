@@ -267,3 +267,6 @@ def create_order_from_product(requset,slug):
         'all_product':all_product
     }
     return render(requset,'home/create_order.html',context)
+
+def detail_product(requset):
+    return render(requset,'detail_product/detail_product.html')
