@@ -131,7 +131,7 @@
   }
 
   .product_type_list.show_product_type_list{
-    top: 100%;
+    top: -257px;
     transition: all 1s ease;
   }
 
