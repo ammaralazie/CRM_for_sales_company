@@ -9,6 +9,8 @@
     padding: 10px;
 }
 
+
+
 .nav__options{
     width: 100%;
     height: 520px;
@@ -233,6 +235,7 @@ flex-direction: column;
 }
 
 .form_search form input[type=search] {
+    
     width: 94%;
     height: 16%;}
 .custom-select {
@@ -243,5 +246,31 @@ flex-direction: column;
 
 .select-items div, .select-selected {
     font-size: 10px;
+}
+
+.form_search form button {
+
+    top: 46%;
+    font-size:25px;
+}
+
+.select-selected:after {
+    right: 98px;
+}
+
+.select-items div, .select-selected {
+    width: 110px;
+    height: 30px;
+}
+
+.select-items {
+
+    width: 110px;
+}
+
+.form_search form input[type=search] {
+
+    height: 14%;
+
 }
 }/* end media 450 */

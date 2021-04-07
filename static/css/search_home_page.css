@@ -131,7 +131,7 @@
   }
 
   .product_type_list.show_product_type_list{
-    top: -257px;
+    top: 71px;
     transition: all 1s ease;
   }
 
@@ -151,3 +151,9 @@
   .product_type_list .type_list>li:hover{
     color: rgb(88, 19, 128);
   }
+@media screen and (max-width:1024px){
+  .product_type_list.show_product_type_list{
+    top: -257px;
+    transition: all 1s ease;
+  }
+}

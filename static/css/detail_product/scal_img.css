@@ -1,0 +1,33 @@
+#courser{
+    width: 50px;
+    height:50px;
+    border: 1px solid #000;
+    position: absolute;
+    border-radius: 63px;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    z-index: -4;
+    visibility: hidden;
+    
+}
+.main_cursor{
+    padding: 3px;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    border-radius: 50px;
+}
+
+.absolute_cursor{
+    position: absolute;
+    padding: 4px;
+    border-radius: 50px;
+    transition: all .3s ease;
+    background-color: rgb(12, 12, 12);
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%,-50%);
+
+
+}
+

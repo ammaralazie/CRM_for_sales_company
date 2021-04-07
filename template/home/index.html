@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/search_home_page.css' %}">
 <link rel="stylesheet" href="{% static 'css/slaid_card.css' %}">
 {% endblock head %}
 
@@ -48,7 +47,7 @@ products
                         <img src="{{obj.PRDIamge.url}}" alt="">
                     </div>
                     <div class="name">
-                        <a href="{% url 'product:detail_product' %}">{{obj.PRDName}}</a>
+                        <a href="{% url 'product:detail_product' obj.PRDSlug %}">{{obj.PRDName}}</a>
                     </div>
                     
                     <div class="discription">

@@ -268,5 +268,9 @@ def create_order_from_product(requset,slug):
     }
     return render(requset,'home/create_order.html',context)
 
-def detail_product(requset):
-    return render(requset,'detail_product/detail_product.html')
+def detail_product(requset,slug):
+    obj=Product.objects.get(PRDSlug=slug)
+    context={
+        'obj':obj,
+    }
+    return render(requset,'detail_product/detail_product.html',context)

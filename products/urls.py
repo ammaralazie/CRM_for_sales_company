@@ -16,6 +16,6 @@ urlpatterns = [
     path('sort_by_type/<type>',sort_by_type,name='sort_by_type'), 
     path('create_order/',create_order,name='create_order'), 
     path('create_order_from_product/<slug:slug>',create_order_from_product,name='create_order_from_product'),
-     path('detail_product/',detail_product,name='detail_product'),
+     path('detail_product/<slug:slug>',detail_product,name='detail_product'),
 
 ]

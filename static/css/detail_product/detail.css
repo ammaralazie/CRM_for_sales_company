@@ -147,7 +147,7 @@ position: static;
 .detail_addOrder{
     width: 46%;
     height: 45px;
-    margin: auto;
+    /* margin: auto; */
     margin-top: 20px;
     border-radius: 10px;
     background: green;
@@ -155,6 +155,10 @@ position: static;
     color: #fff;
     font-size: 18px;
     margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 
 }
 
